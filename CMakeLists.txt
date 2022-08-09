@@ -17,9 +17,58 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
+
+        UV/icontroldata.cpp
+        UV/ituningdata.cpp
+        UV/iuserinterfacedata.cpp
+        UV/uv_controlcontour.cpp
+        UV/uv_thruster.cpp
+        UV/ibasicdata.cpp
+        UV/iserverdata.cpp
+        UV/uv_device.cpp
+        UV/uv_state.cpp
+
+        Control/Control.cpp
+        Control/ControlBase.cpp
+        Control/ControlWindow.cpp
+        Control/Joystick.cpp
+        Control/Keyboard.cpp
+        Control/Mouse3d.cpp
+
+        Thruster/ThrusterWindow.cpp
+        Thruster/Thruster.cpp
+
+        PicFrame/picframe.cpp
+        #----------------------------------
         mainwindow.h
+
+        UV/ibasicdata.h
+        UV/icontroldata.h
+        UV/iserverdata.h
+        UV/ituningdata.h
+        UV/iuserinterfacedata.h
+        UV/uv_controlcontour.h
+        UV/uv_device.h
+        UV/uv_state.h
+
+        Control/Control.h
+        Control/ControlBase.h
+        Control/ControlWindow.h
+        Control/Joystick.h
+        Control/Keyboard.h
+        Control/Mouse3d.h
+
+        Thruster/ThrusterWindow.h
+        Thruster/Thruster.h
+
+        PicFrame/picframe.h
+        #----------------------------------
         mainwindow.ui
-)
+        Control/ControlWindow.ui
+        PicFrame/picframe.ui
+        Thruster/ThrusterWindow.ui
+        Thruster/Thruster.ui
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(UV_control_box
