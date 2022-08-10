@@ -4,7 +4,7 @@ ControlWindow::ControlWindow(QWidget *parent) :
         QWidget(parent),
         ui(new Ui::ControlWindow) {
     ui->setupUi(this);
-    ui->CheckBoxMouse3d->setCheckState(Qt::Checked); // TODO: сделать автоматическую установку дефолтного чекбокса
+//    ui->CheckBoxMouse3d->setCheckState(Qt::Checked); // TODO: сделать автоматическую установку дефолтного чекбокса
 //    connect(ui->CheckBoxKeyBoard, SIGNAL(stateChanged(state)), this, SLOT(MainWindow::enableController(Control::KEYBOARD, state)));
     connect(ui->CheckBoxKeyBoard, SIGNAL(stateChanged(int)), this, SLOT(KeyboardSelection(int)));
 //    connect(ui->CheckBoxMouse3d, SIGNAL(stateChanged(int)), this, SLOT(Mouse3dSelection(int)));

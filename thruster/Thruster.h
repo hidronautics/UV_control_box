@@ -8,7 +8,7 @@
 #include <QDebug>
 #include <iostream>
 
-#include "Utilitis/json.h"
+#include "utils/json.h"
 using json = nlohmann::json;
 
 namespace Ui {

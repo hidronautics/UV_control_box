@@ -14,6 +14,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
+#SFML
+if(WIN32)
+    add_subdirectory(SFML/SFML)
+else()
+    set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules/")
+    find_package(SFML 2.4 REQUIRED graphics window system audio)
+    include_directories(${SFML_INCLUDE_DIR})
+endif()
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -28,14 +37,14 @@ set(PROJECT_SOURCES
         UV/uv_device.cpp
         UV/uv_state.cpp
 
-        Control/Control.cpp
-        Control/ControlBase.cpp
-        Control/ControlWindow.cpp
-        Control/Joystick.cpp
-        Control/Keyboard.cpp
+        control/Control.cpp
+        control/ControlBase.cpp
+        control/ControlWindow.cpp
+        control/Joystick.cpp
+        control/Keyboard.cpp
 
-        Thruster/ThrusterWindow.cpp
-        Thruster/Thruster.cpp
+        thruster/ThrusterWindow.cpp
+        thruster/Thruster.cpp
 
         PicFrame/picframe.cpp
         #----------------------------------
@@ -50,22 +59,22 @@ set(PROJECT_SOURCES
         UV/uv_device.h
         UV/uv_state.h
 
-        Control/Control.h
-        Control/ControlBase.h
-        Control/ControlWindow.h
-        Control/Joystick.h
-        Control/Keyboard.h
+        control/Control.h
+        control/ControlBase.h
+        control/ControlWindow.h
+        control/Joystick.h
+        control/Keyboard.h
 
-        Thruster/ThrusterWindow.h
-        Thruster/Thruster.h
+        thruster/ThrusterWindow.h
+        thruster/Thruster.h
 
         PicFrame/picframe.h
         #----------------------------------
         mainwindow.ui
-        Control/ControlWindow.ui
+        control/ControlWindow.ui
         PicFrame/picframe.ui
-        Thruster/ThrusterWindow.ui
-        Thruster/Thruster.ui
+        thruster/ThrusterWindow.ui
+        thruster/Thruster.ui
         )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -91,7 +100,13 @@ else()
     endif()
 endif()
 
-target_link_libraries(UV_control_box PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(UV_control_box PRIVATE
+        sfml-graphics sfml-window sfml-system
+        Qt${QT_VERSION_MAJOR}::Widgets
+        Qt${QT_VERSION_MAJOR}::Core
+        Qt${QT_VERSION_MAJOR}::Gui
+        Qt${QT_VERSION_MAJOR}::Widgets
+        )
 
 set_target_properties(UV_control_box PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

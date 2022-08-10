@@ -1,6 +1,6 @@
 #include "Thruster.h"
 #include "ui_Thruster.h"
-#include "Thruster.moc"
+//#include "Thruster.moc"
 
 Thruster::Thruster(QWidget *parent) :
         QWidget(parent),
