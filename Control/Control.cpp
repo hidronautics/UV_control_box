@@ -6,7 +6,7 @@ Control::Control() {
 
 void Control::setDefoultEnabeling() {
     this->setEnabel(JOYSTICK, true);
-    this->setEnabel(MOUSE3D, false);
+//    this->setEnabel(MOUSE3D, false);
     this->setEnabel(KEYBOARD, false);
 
 };
@@ -23,14 +23,14 @@ void Control::setEnabel(e_controllerType controlType, bool enabel) {
             }
             break;
 
-        case MOUSE3D:
-            if ((enabel == true) & (mouse3D == nullptr)) {
-                mouse3D = new Mouse3d("3dMouse", 5);
-            } else if (mouse3D != nullptr) {
-                delete mouse3D;
-                mouse3D = nullptr;
-            }
-            break;
+//        case MOUSE3D:
+//            if ((enabel == true) & (mouse3D == nullptr)) {
+//                mouse3D = new Mouse3d("3dMouse", 5);
+//            } else if (mouse3D != nullptr) {
+//                delete mouse3D;
+//                mouse3D = nullptr;
+//            }
+//            break;
 
         case KEYBOARD:
             if ((enabel == true) & (keyboard == nullptr)) {

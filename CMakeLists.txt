@@ -33,7 +33,6 @@ set(PROJECT_SOURCES
         Control/ControlWindow.cpp
         Control/Joystick.cpp
         Control/Keyboard.cpp
-        Control/Mouse3d.cpp
 
         Thruster/ThrusterWindow.cpp
         Thruster/Thruster.cpp
@@ -56,7 +55,6 @@ set(PROJECT_SOURCES
         Control/ControlWindow.h
         Control/Joystick.h
         Control/Keyboard.h
-        Control/Mouse3d.h
 
         Thruster/ThrusterWindow.h
         Thruster/Thruster.h

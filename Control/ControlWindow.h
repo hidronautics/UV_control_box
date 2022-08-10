@@ -23,7 +23,7 @@ public:
 
 public slots:
     void KeyboardSelection(int state);
-    void Mouse3dSelection(int state);
+//    void Mouse3dSelection(int state);
     void JoystickLogitechSelection(int state);
 
 signals:
