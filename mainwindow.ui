@@ -460,6 +460,13 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
+       <widget class="QPushButton" name="pushButton_kxPult">
+        <property name="text">
+         <string>kxPult</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton_thruster">
         <property name="text">
          <string>Винтомоторы</string>
@@ -470,13 +477,6 @@
        <widget class="QPushButton" name="pushButton_control">
         <property name="text">
          <string>Управление</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_kxPult">
-        <property name="text">
-         <string>kxPult</string>
         </property>
        </widget>
       </item>
@@ -617,6 +617,42 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_6">
       <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>СУ mode</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>mode 1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_2">
+           <property name="text">
+            <string>mode 2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_3">
+           <property name="text">
+            <string>mode 3</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -755,7 +791,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_9">
         <property name="title">
-         <string>Impact</string>
+         <string>Impact (у.е.)</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -982,42 +1018,42 @@
            <item>
             <widget class="QLabel" name="label_9">
              <property name="text">
-              <string>Roll</string>
+              <string>March (м/с^2)</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>Pitch</string>
+              <string>Pitch (м/с^2)</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_12">
              <property name="text">
-              <string>Depth</string>
+              <string>Depth (м/с^2)</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_11">
              <property name="text">
-              <string>Yaw</string>
+              <string>Yaw (°)</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_5">
              <property name="text">
-              <string>TextLabel</string>
+              <string>Roll (°)</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_6">
              <property name="text">
-              <string>TextLabel</string>
+              <string>Pitch (°)</string>
              </property>
             </widget>
            </item>
@@ -1056,14 +1092,14 @@
            <item>
             <widget class="QLabel" name="label_7">
              <property name="text">
-              <string>TextLabel</string>
+              <string>0</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_13">
              <property name="text">
-              <string>TextLabel</string>
+              <string>0</string>
              </property>
             </widget>
            </item>
