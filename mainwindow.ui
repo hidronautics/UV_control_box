@@ -809,7 +809,7 @@
         <item>
          <widget class="QGroupBox" name="groupBox_9">
           <property name="title">
-           <string>Impact (у.е.)</string>
+           <string>Задающее воздействие (у.е.)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -821,12 +821,12 @@
            <bool>false</bool>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="4" column="0">
+           <item row="0" column="0">
             <widget class="QLabel" name="label_yaw_static">
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>16</height>
+               <height>20</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -836,87 +836,11 @@
               </size>
              </property>
              <property name="text">
-              <string>Yaw</string>
+              <string>Курс</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_pitch_static">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Pitch</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_roll_static">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Roll</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_march">
-             <property name="minimumSize">
-              <size>
-               <width>40</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="label_depth">
-             <property name="minimumSize">
-              <size>
-               <width>40</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2" rowspan="7">
+           <item row="0" column="2" rowspan="10">
             <widget class="QGroupBox" name="groupBox_16">
              <property name="title">
               <string>Devices</string>
@@ -925,7 +849,7 @@
               <item row="0" column="0">
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Grabber</string>
+                 <string>Схват</string>
                 </property>
                </widget>
               </item>
@@ -951,7 +875,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>Grab rot</string>
+                 <string>Ротация</string>
                 </property>
                </widget>
               </item>
@@ -965,7 +889,7 @@
               <item row="2" column="0">
                <widget class="QLabel" name="label_3">
                 <property name="text">
-                 <string>Tilt</string>
+                 <string>Наклон камеры</string>
                 </property>
                </widget>
               </item>
@@ -993,26 +917,7 @@
              </layout>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_depth_static">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Depth</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
+           <item row="0" column="1">
             <widget class="QLabel" name="label_yaw">
              <property name="minimumSize">
               <size>
@@ -1032,11 +937,11 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_lag_static">
+            <widget class="QLabel" name="label_pitch_static">
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>16</height>
+               <height>20</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -1046,11 +951,11 @@
               </size>
              </property>
              <property name="text">
-              <string>Lag</string>
+              <string>Дифферент</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="1" column="1">
             <widget class="QLabel" name="label_pitch">
              <property name="minimumSize">
               <size>
@@ -1069,12 +974,12 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_march_static">
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_roll_static">
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>16</height>
+               <height>20</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -1084,30 +989,11 @@
               </size>
              </property>
              <property name="text">
-              <string>March</string>
+              <string>Крен</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_lag">
-             <property name="minimumSize">
-              <size>
-               <width>40</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
+           <item row="2" column="1">
             <widget class="QLabel" name="label_roll">
              <property name="minimumSize">
               <size>
@@ -1133,6 +1019,120 @@
              </property>
             </widget>
            </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_march_static">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Марш</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_march">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_depth_static">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Глубина</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="label_depth">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="label_lag">
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_lag_static">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Гаг</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1141,7 +1141,7 @@
       <item row="0" column="2" rowspan="5">
        <widget class="QGroupBox" name="groupBox_10">
         <property name="title">
-         <string>Упоры на двигателях</string>
+         <string>Упоры на двигателях (%)</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_11">
          <item>
@@ -1866,7 +1866,7 @@
            <string>Компас</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="1">
+           <item row="0" column="0">
             <widget class="PicFrame" name="compassFrame" native="true">
              <property name="minimumSize">
               <size>
