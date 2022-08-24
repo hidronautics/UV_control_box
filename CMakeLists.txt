@@ -11,8 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets SerialPort REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Widgets SerialPort Network Test REQUIRED)
 
 include_directories("${PROJECT_SOURCE_DIR}/communication")
 include_directories("${PROJECT_SOURCE_DIR}/control")
@@ -20,7 +20,6 @@ include_directories("${PROJECT_SOURCE_DIR}/PicFrame")
 include_directories("${PROJECT_SOURCE_DIR}/thruster")
 include_directories("${PROJECT_SOURCE_DIR}/utils")
 include_directories("${PROJECT_SOURCE_DIR}/UV")
-
 
 #SFML
 if(WIN32)
@@ -118,6 +117,7 @@ target_link_libraries(UV_control_box PRIVATE
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Gui
         Qt${QT_VERSION_MAJOR}::Widgets
+        Qt${QT_VERSION_MAJOR}::Network
         )
 
 set_target_properties(UV_control_box PROPERTIES
