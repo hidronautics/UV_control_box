@@ -14,6 +14,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
+include_directories("${PROJECT_SOURCE_DIR}/communication")
+include_directories("${PROJECT_SOURCE_DIR}/control")
+include_directories("${PROJECT_SOURCE_DIR}/PicFrame")
+include_directories("${PROJECT_SOURCE_DIR}/thruster")
+include_directories("${PROJECT_SOURCE_DIR}/utils")
+include_directories("${PROJECT_SOURCE_DIR}/UV")
+
+
 #SFML
 if(WIN32)
     add_subdirectory(SFML/SFML)
@@ -43,6 +51,8 @@ set(PROJECT_SOURCES
         control/Joystick.cpp
         control/Keyboard.cpp
 
+        communication/UdpClient.cpp
+
         thruster/ThrusterWindow.cpp
         thruster/Thruster.cpp
 
@@ -64,6 +74,8 @@ set(PROJECT_SOURCES
         control/ControlWindow.h
         control/Joystick.h
         control/Keyboard.h
+
+        communication/UdpClient.h
 
         thruster/ThrusterWindow.h
         thruster/Thruster.h
