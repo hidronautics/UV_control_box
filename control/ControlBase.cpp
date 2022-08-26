@@ -31,33 +31,6 @@ void ControlBase::sendAction(e_actionTypes type, double value) {
             setYaw(value);
             break;
 
-        case SET_TILT:
-            setTilt(value);
-            break;
-
-        case CLENCH_GRAB:
-            clenchGrab(value);
-            break;
-
-        case UNCLENCH_GRAB:
-            unclenchGrab(value);
-            break;
-
-        case ROTATE_GRAB_RIGHT:
-            rotateGrabRight(value);
-            break;
-
-        case ROTATE_GRAB_LEFT:
-            rotateGrabLeft(value);
-            break;
-
-        case ROTATE_TILT_UP:
-            rotateTiltUp(value);
-            break;
-
-        case ROTATE_TILT_DOWN:
-            rotateTiltDown(value);
-            break;
     }
 }
 
@@ -84,34 +57,6 @@ void ControlBase::setPitch(double value) {
 
 void ControlBase::setYaw(double value) {
     interface.setYaw(value);
-}
-
-void ControlBase::setTilt(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_TILT, -value / 2.5);
-}
-
-void ControlBase::clenchGrab(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_GRAB, value);
-}
-
-void ControlBase::unclenchGrab(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_GRAB, -value);
-}
-
-void ControlBase::rotateGrabRight(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_GRAB_ROTATE, value);
-}
-
-void ControlBase::rotateGrabLeft(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_GRAB_ROTATE, -value);
-}
-
-void ControlBase::rotateTiltUp(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_TILT, value);
-}
-
-void ControlBase::rotateTiltDown(double value) {
-    interface.setDeviceVelocity(UV_Device::DEVICE_TILT, -value);
 }
 
 double ControlBase::Sensitivity(double value, double deadZone, double maxValue) {

@@ -100,5 +100,5 @@ ConnectionFlags::ConnectionFlags() {
     vectorNav = false;
     joystick = false;
     controlSystem = false;
-    WMAcontroller = false;
+    thrusterController = false;
 }

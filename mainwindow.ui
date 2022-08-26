@@ -510,6 +510,9 @@
              <property name="text">
               <string>w</string>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
             </widget>
            </item>
            <item row="1" column="2">
@@ -524,12 +527,18 @@
              <property name="text">
               <string>phi</string>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="label_35">
              <property name="text">
               <string>a</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -639,7 +648,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_connection_WMAcontroller">
+              <widget class="QCheckBox" name="checkBox_connection_thrusterController">
                <property name="text">
                 <string>Контроллер ВМА</string>
                </property>
@@ -708,7 +717,7 @@
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButtonResetIMU">
+            <widget class="QPushButton" name="pushButton_resetIMU">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                <horstretch>0</horstretch>
@@ -721,7 +730,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButtonReconnectROV">
+            <widget class="QPushButton" name="pushButton_reconnectROV">
              <property name="text">
               <string>Переподключение ТПА</string>
              </property>
@@ -1127,7 +1136,7 @@
          <item>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="1" column="1">
-            <widget class="QSlider" name="verticalSlider_2">
+            <widget class="QSlider" name="verticalSlider_thruster_2">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1149,7 +1158,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QSpinBox" name="spinBox">
+            <widget class="QSpinBox" name="spinBox_thruster_0">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1159,7 +1168,7 @@
             </widget>
            </item>
            <item row="7" column="3">
-            <widget class="QSpinBox" name="spinBox_6">
+            <widget class="QSpinBox" name="spinBox_thruster_5">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1195,7 +1204,7 @@
             </spacer>
            </item>
            <item row="0" column="2">
-            <widget class="QSlider" name="verticalSlider_4">
+            <widget class="QSlider" name="verticalSlider_thruster_1">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1217,7 +1226,7 @@
             </widget>
            </item>
            <item row="8" column="0">
-            <widget class="QSpinBox" name="spinBox_7">
+            <widget class="QSpinBox" name="spinBox_thruster_6">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1227,7 +1236,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QSpinBox" name="spinBox_3">
+            <widget class="QSpinBox" name="spinBox_thruster_2">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1237,7 +1246,7 @@
             </widget>
            </item>
            <item row="7" column="2">
-            <widget class="QSlider" name="verticalSlider_8">
+            <widget class="QSlider" name="verticalSlider_thruster_5">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1259,7 +1268,7 @@
             </widget>
            </item>
            <item row="7" column="1">
-            <widget class="QSlider" name="verticalSlider_3">
+            <widget class="QSlider" name="verticalSlider_thruster_4">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1288,7 +1297,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QSlider" name="verticalSlider">
+            <widget class="QSlider" name="verticalSlider_thruster_0">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1310,7 +1319,7 @@
             </widget>
            </item>
            <item row="7" column="0">
-            <widget class="QSpinBox" name="spinBox_5">
+            <widget class="QSpinBox" name="spinBox_thruster_4">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1320,7 +1329,7 @@
             </widget>
            </item>
            <item row="8" column="2">
-            <widget class="QSlider" name="verticalSlider_9">
+            <widget class="QSlider" name="verticalSlider_thruster_7">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1342,7 +1351,7 @@
             </widget>
            </item>
            <item row="1" column="3">
-            <widget class="QSpinBox" name="spinBox_4">
+            <widget class="QSpinBox" name="spinBox_thruster_3">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1352,7 +1361,7 @@
             </widget>
            </item>
            <item row="0" column="3">
-            <widget class="QSpinBox" name="spinBox_2">
+            <widget class="QSpinBox" name="spinBox_thruster_1">
              <property name="minimum">
               <number>-100</number>
              </property>
@@ -1362,7 +1371,7 @@
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QSlider" name="verticalSlider_5">
+            <widget class="QSlider" name="verticalSlider_thruster_3">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1384,7 +1393,7 @@
             </widget>
            </item>
            <item row="8" column="1">
-            <widget class="QSlider" name="verticalSlider_7">
+            <widget class="QSlider" name="verticalSlider_thruster_6">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1413,7 +1422,7 @@
             </widget>
            </item>
            <item row="8" column="3">
-            <widget class="QSpinBox" name="spinBox_8">
+            <widget class="QSpinBox" name="spinBox_thruster_7">
              <property name="minimum">
               <number>-100</number>
              </property>

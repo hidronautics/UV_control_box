@@ -18,7 +18,7 @@ struct ControlData {
 struct ControlContoursFlags {
     ControlContoursFlags();
     bool yaw;
-    bool pitch;w
+    bool pitch;
     bool roll;
     bool march;
     bool depth;
@@ -93,7 +93,7 @@ struct ConnectionFlags {
     bool vectorNav;
     bool joystick;
     bool controlSystem;
-    bool WMAcontroller;
+    bool thrusterController;
 };
 
 class UV_State {

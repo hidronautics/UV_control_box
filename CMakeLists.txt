@@ -17,7 +17,6 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Widgets SerialPort Networ
 include_directories("${PROJECT_SOURCE_DIR}/communication")
 include_directories("${PROJECT_SOURCE_DIR}/control")
 include_directories("${PROJECT_SOURCE_DIR}/PicFrame")
-include_directories("${PROJECT_SOURCE_DIR}/thruster")
 include_directories("${PROJECT_SOURCE_DIR}/utils")
 include_directories("${PROJECT_SOURCE_DIR}/UV")
 
@@ -35,13 +34,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
 
         UV/icontroldata.cpp
-        UV/ituningdata.cpp
         UV/iuserinterfacedata.cpp
-        UV/uv_controlcontour.cpp
-        UV/uv_thruster.cpp
         UV/ibasicdata.cpp
-        UV/iserverdata.cpp
-        UV/uv_device.cpp
+#        UV/iserverdata.cpp
         UV/uv_state.cpp
 
         control/Control.cpp
@@ -50,22 +45,16 @@ set(PROJECT_SOURCES
         control/Joystick.cpp
         control/Keyboard.cpp
 
-        communication/UdpClient.cpp
-
-        thruster/ThrusterWindow.cpp
-        thruster/Thruster.cpp
+#        communication/UdpClient.cpp
 
         PicFrame/picframe.cpp
         #----------------------------------
         mainwindow.h
 
-        UV/ibasicdata.h
         UV/icontroldata.h
-        UV/iserverdata.h
-        UV/ituningdata.h
         UV/iuserinterfacedata.h
-        UV/uv_controlcontour.h
-        UV/uv_device.h
+        UV/ibasicdata.h
+#        UV/iserverdata.h
         UV/uv_state.h
 
         control/Control.h
@@ -74,18 +63,13 @@ set(PROJECT_SOURCES
         control/Joystick.h
         control/Keyboard.h
 
-        communication/UdpClient.h
-
-        thruster/ThrusterWindow.h
-        thruster/Thruster.h
+#        communication/UdpClient.h
 
         PicFrame/picframe.h
         #----------------------------------
         mainwindow.ui
         control/ControlWindow.ui
         PicFrame/picframe.ui
-        thruster/ThrusterWindow.ui
-        thruster/Thruster.ui
         )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

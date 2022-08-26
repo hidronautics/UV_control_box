@@ -2,6 +2,21 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QAction>
+#include <QSettings>
+#include <QList>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsPixmapItem>
+#include <QFileInfo>
+#include <QDebug>
+#include <QShortcut>
+#include <QApplication>
+#include <QThread>
+#include <QTimer>
+
+
+#include "UV/iuserinterfacedata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +30,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void updateUi_fromROV(); //обновляет на экране данные, пришедшие с аппарата
+    void updateUi_fromControl(); //обновляет на экране данные, пришедшие с джостика
+
 private:
     Ui::MainWindow *ui;
+
+    IUserInterfaceData uv_interface;
+
 };
 #endif // MAINWINDOW_H
