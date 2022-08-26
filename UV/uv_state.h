@@ -4,31 +4,96 @@
 #include "stdint.h"
 
 #include <QDebug>
-#include "uv_device.h"
-#include "uv_thruster.h"
-#include "uv_controlcontour.h"
-
-struct ImuData {
-    ImuData();
-
-    double roll;
-    double pitch;
-    double yaw;
-    double rollSpeed;
-    double pitchSpeed;
-    double yawSpeed;
-    double depth;
-};
 
 struct ControlData {
     ControlData();
-
-    double march;
-    double lag;
-    double depth;
-    double roll;
-    double pitch;
     double yaw;
+    double pitch;
+    double roll;
+    double march;
+    double depth;
+    double lag;
+};
+
+struct ControlContoursFlags {
+    ControlContoursFlags();
+    bool yaw;
+    bool pitch;w
+    bool roll;
+    bool march;
+    bool depth;
+    bool lag;
+};
+
+struct ImuData {
+    ImuData();
+    double ax;
+    double ay;
+    double az;
+
+    double wx;
+    double wy;
+    double wz;
+
+    double psi;
+    double teta;
+    double gamma;
+
+    double q0;
+    double q1;
+    double q2;
+    double q3;
+};
+
+struct MoutionDataAfterAlgoritms {
+    MoutionDataAfterAlgoritms();
+    double ax;
+    double ay;
+    double az;
+
+    double vx;
+    double vy;
+    double vz;
+
+    double vxg;
+    double vyg;
+    double vzg;
+
+    double x;
+    double y;
+    double z;
+
+    double wx;
+    double wy;
+    double wz;
+
+    double dPsi;
+    double dTeta;
+    double dGamma;
+
+    double psi;
+    double teta;
+    double gamma;
+
+    double q0;
+    double q1;
+    double q2;
+    double q3;
+};
+
+struct Thruster {
+    Thruster();
+    int id;
+    double velocity;
+    double current;
+};
+
+struct ConnectionFlags {
+    ConnectionFlags();
+    bool vectorNav;
+    bool joystick;
+    bool controlSystem;
+    bool WMAcontroller;
 };
 
 class UV_State {
@@ -36,39 +101,20 @@ public:
     UV_State();
     ~UV_State();
 
-    // TODO: Replace this with dynamic arrays (later)
-    const static unsigned int devices_amount = 6;
-
-    int thrusterAmount;
-
-    void setThrusterAmount(int thrusterAmount);
-    int getThrusterAmount();
-
-    int controlContourAmount;
-
-    void setControlContourAmount(int controlContourAmount);
-    int getControlContourAmount();
-
-    // ControlWindow values
     ControlData control;
 
-    // IMU values
-    ImuData imu;
+    ControlContoursFlags controlContoursFlags;
 
-    // Auxiliar state values
-    double aux_inpressure;
+    ImuData imuData;
+    MoutionDataAfterAlgoritms moutionDataAfterAlgoritms;
+    double depth;
 
-    // Devices
-    UV_Device device[devices_amount];
-
-    // Thrusters
-    UV_Thruster *thruster;
-
-    // Stabilization Contours
-    UV_ControlContour *controlContour;
+    Thruster *thruster;
 
     // Flags
+    ConnectionFlags connectionFlags;
     bool resetImu;
+    bool thrusterPower;
 };
 
 #endif // UV_STATE_H

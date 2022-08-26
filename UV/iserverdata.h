@@ -26,11 +26,6 @@ public:
     QByteArray generateMessage(int message_type);
     void parseMessage(QByteArray message, int message_type);
 
-    void changeCurrentThruster(unsigned int slot);
-    int getThrusterAmount();
-
-    int getCurrentThruster();
-
     void changeCurrentControlContour(unsigned int slot);
     int getControlContourAmount();
 

@@ -1,44 +1,15 @@
 #include "uv_state.h"
-
-ImuData::ImuData() {
-    roll = 0;
-    pitch = 0;
-    yaw = 0;
-    rollSpeed = 0;
-    pitchSpeed = 0;
-    yawSpeed = 0;
-    depth = 0;
-}
-
-ControlData::ControlData() {
-    march = 0;
-    lag = 0;
-    depth = 0;
-    roll = 0;
-    pitch = 0;
-    yaw = 0;
-};
+#define THRUSTER_AMOUNT 8
 
 UV_State::UV_State() {
-    device[UV_Device::DEVICE_LIGHT].name = "Light";
-    device[UV_Device::DEVICE_LIGHT].slot = UV_Device::DEVICE_LIGHT;
 
-    device[UV_Device::DEVICE_DEV1].name = "Dev1";
-    device[UV_Device::DEVICE_DEV1].slot = UV_Device::DEVICE_DEV1;
-
-    device[UV_Device::DEVICE_DEV2].name = "Dev2";
-    device[UV_Device::DEVICE_DEV2].slot = UV_Device::DEVICE_DEV2;
-
-    device[UV_Device::DEVICE_GRAB].name = "Grab";
-    device[UV_Device::DEVICE_GRAB].slot = UV_Device::DEVICE_GRAB;
-
-    device[UV_Device::DEVICE_GRAB_ROTATE].name = "Grab Rotation";
-    device[UV_Device::DEVICE_GRAB_ROTATE].slot = UV_Device::DEVICE_GRAB_ROTATE;
-
-    device[UV_Device::DEVICE_TILT].name = "Tilt";
-    device[UV_Device::DEVICE_TILT].slot = UV_Device::DEVICE_TILT;
+    thruster = new Thruster[THRUSTER_AMOUNT];
+    for (int i = 0; i < THRUSTER_AMOUNT; ++i) {
+        thruster[i].id = i;
+    }
 
     resetImu = false;
+    thrusterPower = true;
 }
 
 UV_State::~UV_State() {
@@ -47,28 +18,87 @@ UV_State::~UV_State() {
     }
 }
 
-void UV_State::setThrusterAmount(int thrusterAmount) {
-    if (thruster != nullptr){
-        delete thruster;
-    }
-    thruster = new UV_Thruster[thrusterAmount];
-    this->thrusterAmount = thrusterAmount;
-    qDebug() << "setThrusterAmount " << thrusterAmount;
+ControlData::ControlData() {
+    yaw = 0;
+    pitch = 0;
+    roll = 0;
+    march = 0;
+    depth = 0;
+    lag = 0;
 }
 
-int UV_State::getThrusterAmount() {
-    return thrusterAmount;
+ControlContoursFlags::ControlContoursFlags() {
+    yaw = false;
+    pitch = false;
+    roll = false;
+    march = false;
+    depth = false;
+    lag = false;
 }
 
-void UV_State::setControlContourAmount(int controlContourAmount) {
-    if (controlContour != nullptr){
-        delete controlContour;
-    }
-    controlContour = new UV_ControlContour[controlContourAmount];
-    this->controlContourAmount = controlContourAmount;
-    qDebug() << "setControlContourAmount " << controlContourAmount;
+ImuData::ImuData() {
+    ax = 0;
+    ay = 0;
+    az = 0;
+
+    wx = 0;
+    wy = 0;
+    wz = 0;
+
+    psi = 0;
+    teta = 0;
+    gamma = 0;
+
+    q0 = 0;
+    q1 = 0;
+    q2 = 0;
+    q3 = 0;
 }
 
-int UV_State::getControlContourAmount() {
-    return controlContourAmount;
+MoutionDataAfterAlgoritms::MoutionDataAfterAlgoritms() {
+    ax = 0;
+    ay = 0;
+    az = 0;
+
+    vx = 0;
+    vy = 0;
+    vz = 0;
+
+    vxg = 0;
+    vyg = 0;
+    vzg = 0;
+
+    x = 0;
+    y = 0;
+    z = 0;
+
+    wx = 0;
+    wy = 0;
+    wz = 0;
+
+    dPsi = 0;
+    dTeta = 0;
+    dGamma = 0;
+
+    psi = 0;
+    teta = 0;
+    gamma = 0;
+
+    q0 = 0;
+    q1 = 0;
+    q2 = 0;
+    q3 = 0;
+}
+
+Thruster::Thruster() {
+    id = 0;
+    velocity = 0;
+    current = 0;
+}
+
+ConnectionFlags::ConnectionFlags() {
+    vectorNav = false;
+    joystick = false;
+    controlSystem = false;
+    WMAcontroller = false;
 }

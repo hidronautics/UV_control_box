@@ -8,13 +8,18 @@ public:
     IUserInterfaceData();
 
     ControlData getControlData();
+    double getDepth();
     ImuData getImuData();
-    UV_Device getDeviceData(QString name);
-    UV_Thruster getThrusterData(QString name);
+    MoutionDataAfterAlgoritms getMoutionDataAfterAlgoritms();
 
-    double getDeviceVelocity(int slot);
+    double getThrusterCurrent(int id);
+    void setThrusterVelocity(int id, double value);
 
-    void setResetImuValue(bool value);
+    void setControlContoursFlags(int contour, bool value);
+
+    ConnectionFlags getConnectionFlags();
+    void setResetImuFlag(bool value);
+    void SetThrusterPowerFlag(bool value);
 };
 
 #endif // IUSERINTERFACEDATA_H
