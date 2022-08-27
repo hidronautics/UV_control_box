@@ -15,7 +15,8 @@ public:
     double getThrusterCurrent(int id);
     void setThrusterVelocity(int id, double value);
 
-    void setControlContoursFlags(int contour, bool value);
+    void setControlContoursFlags(e_STABILIZATION_CONTOURS contour, bool value);
+    void setCSMode(e_CSMode mode);
 
     ConnectionFlags getConnectionFlags();
     void setResetImuFlag(bool value);

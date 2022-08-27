@@ -69,8 +69,45 @@ void IUserInterfaceData::setThrusterVelocity(int id, double value) {
     UVMutex.unlock();
 }
 
-void IUserInterfaceData::setControlContoursFlags(int contour, bool value) {
+void IUserInterfaceData::setControlContoursFlags(e_STABILIZATION_CONTOURS contour, bool value) {
+    switch (contour) {
+        case CONTOUR_DEPTH:
+            UVMutex.lock();
+            UVState.controlContoursFlags.depth = value;
+            UVMutex.unlock();
 
+        case CONTOUR_LAG:
+            UVMutex.lock();
+            UVState.controlContoursFlags.lag = value;
+            UVMutex.unlock();
+
+        case CONTOUR_MARCH:
+            UVMutex.lock();
+            UVState.controlContoursFlags.march = value;
+            UVMutex.unlock();
+
+        case CONTOUR_PITCH:
+            UVMutex.lock();
+            UVState.controlContoursFlags.pitch = value;
+            UVMutex.unlock();
+
+        case CONTOUR_ROLL:
+            UVMutex.lock();
+            UVState.controlContoursFlags.roll = value;
+            UVMutex.unlock();
+
+        case CONTOUR_YAW:
+            UVMutex.lock();
+            UVState.controlContoursFlags.yaw = value;
+            UVMutex.unlock();
+    }
+}
+
+void IUserInterfaceData::setCSMode(e_CSMode mode) {
+
+    UVMutex.lock();
+    UVState.cSMode = mode;
+    UVMutex.unlock();
 }
 
 ConnectionFlags IUserInterfaceData::getConnectionFlags() {
@@ -88,4 +125,3 @@ void IUserInterfaceData::SetThrusterPowerFlag(bool value) {
     UVState.thrusterPower = value;
     UVMutex.unlock();
 }
-

@@ -33,6 +33,7 @@ public:
 private slots:
     void updateUi_fromROV(); //обновляет на экране данные, пришедшие с аппарата
     void updateUi_fromControl(); //обновляет на экране данные, пришедшие с джостика
+    void updateUi_cSModeChange(e_CSMode mode); //синхронизация radio_button и
 
 private:
     Ui::MainWindow *ui;

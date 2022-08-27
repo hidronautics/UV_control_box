@@ -681,7 +681,7 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
-              <widget class="QRadioButton" name="radioButton">
+              <widget class="QRadioButton" name="radioButton_cSMode_handle">
                <property name="text">
                 <string>ручной</string>
                </property>
@@ -694,21 +694,21 @@
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButton_3">
+              <widget class="QRadioButton" name="radioButton_cSMode_identification1">
                <property name="text">
                 <string>идентификация 1</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButton_4">
+              <widget class="QRadioButton" name="radioButton_cSMode_identification2">
                <property name="text">
                 <string>идентификация 2</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButton_2">
+              <widget class="QRadioButton" name="radioButton_cSMode_auto">
                <property name="text">
                 <string>автоматизированный</string>
                </property>
@@ -985,7 +985,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Гаг</string>
+              <string>Лаг</string>
              </property>
             </widget>
            </item>
@@ -1290,7 +1290,7 @@
             </widget>
            </item>
            <item row="4" column="0" colspan="4">
-            <widget class="QCheckBox" name="checkBox_7">
+            <widget class="QCheckBox" name="checkBox_radioButton_cSMode_thruster">
              <property name="text">
               <string>Упр. ВМА напрямую</string>
              </property>

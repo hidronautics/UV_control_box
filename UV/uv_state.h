@@ -5,6 +5,23 @@
 
 #include <QDebug>
 
+enum e_CSMode {
+    MODE_HANDLE = 0,
+    MODE_IDENTIFICATION_1,
+    MODE_IDENTIFICATION_2,
+    MODE_AUTO,
+    MODE_THRUSTER
+};
+
+enum e_STABILIZATION_CONTOURS {
+    CONTOUR_DEPTH = 0,
+    CONTOUR_MARCH,
+    CONTOUR_LAG,
+    CONTOUR_YAW,
+    CONTOUR_ROLL,
+    CONTOUR_PITCH
+};
+
 struct ControlData {
     ControlData();
     double yaw;
@@ -104,6 +121,7 @@ public:
     ControlData control;
 
     ControlContoursFlags controlContoursFlags;
+    e_CSMode cSMode;
 
     ImuData imuData;
     MoutionDataAfterAlgoritms moutionDataAfterAlgoritms;
