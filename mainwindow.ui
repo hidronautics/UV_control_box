@@ -740,7 +740,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="pushButton_thrusterPower">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -765,7 +765,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <widget class="QCheckBox" name="checkBoxStabilizeRoll">
+            <widget class="QCheckBox" name="checkBox_stabilizeYaw">
              <property name="maximumSize">
               <size>
                <width>120</width>
@@ -778,7 +778,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBoxStabilizePitch">
+            <widget class="QCheckBox" name="checkBox_stabilizePitch">
              <property name="maximumSize">
               <size>
                <width>120</width>
@@ -791,7 +791,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBoxStabilizeYaw">
+            <widget class="QCheckBox" name="checkBox_stabilizeRoll">
              <property name="maximumSize">
               <size>
                <width>120</width>
@@ -811,7 +811,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBoxStabilizeDepth">
+            <widget class="QCheckBox" name="checkBox_stabilizeMarch">
              <property name="maximumSize">
               <size>
                <width>120</width>
@@ -824,7 +824,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox">
+            <widget class="QCheckBox" name="checkBox_stabilizeDepth">
              <property name="maximumSize">
               <size>
                <width>120</width>
@@ -837,7 +837,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_2">
+            <widget class="QCheckBox" name="checkBox_stabilizeLag">
              <property name="maximumSize">
               <size>
                <width>120</width>

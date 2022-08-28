@@ -13,7 +13,7 @@ enum e_CSMode {
     MODE_THRUSTER
 };
 
-enum e_STABILIZATION_CONTOURS {
+enum e_StabilizationContours {
     CONTOUR_DEPTH = 0,
     CONTOUR_MARCH,
     CONTOUR_LAG,

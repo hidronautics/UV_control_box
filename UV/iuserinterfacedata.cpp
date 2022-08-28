@@ -69,9 +69,10 @@ void IUserInterfaceData::setThrusterVelocity(int id, double value) {
     UVMutex.unlock();
 }
 
-void IUserInterfaceData::setControlContoursFlags(e_STABILIZATION_CONTOURS contour, bool value) {
+void IUserInterfaceData::setControlContoursFlags(e_StabilizationContours contour, bool value) {
     switch (contour) {
         case CONTOUR_DEPTH:
+            qDebug() << "CONTOUR_DEPTH setted to" << value;
             UVMutex.lock();
             UVState.controlContoursFlags.depth = value;
             UVMutex.unlock();
@@ -104,6 +105,7 @@ void IUserInterfaceData::setControlContoursFlags(e_STABILIZATION_CONTOURS contou
 }
 
 void IUserInterfaceData::setCSMode(e_CSMode mode) {
+    qDebug() << "CSMode" << mode;
     UVMutex.lock();
     UVState.cSMode = mode;
     UVMutex.unlock();
@@ -119,7 +121,7 @@ ConnectionFlags IUserInterfaceData::getConnectionFlags() {
     return data;
 }
 
-void IUserInterfaceData::SetThrusterPowerFlag(bool value) {
+void IUserInterfaceData::setThrusterPowerFlag(bool value) {
     UVMutex.lock();
     UVState.thrusterPower = value;
     UVMutex.unlock();

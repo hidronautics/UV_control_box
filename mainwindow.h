@@ -40,6 +40,14 @@ private slots:
     void cSModeChange_handle();
     void cSModeChange_thruster(bool checked);
 
+    void powerThrusterToggled(bool state);
+
+    void stabilizeYawToggled(bool state);
+    void stabilizePitchToggled(bool state);
+    void stabilizeRollToggled(bool state);
+    void stabilizeMarchToggled(bool state);
+    void stabilizeDepthToggled(bool state);
+    void stabilizeLagToggled(bool state);
 
 private:
     Ui::MainWindow *ui;

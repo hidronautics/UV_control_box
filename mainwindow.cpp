@@ -16,6 +16,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->radioButton_cSMode_identification2, SIGNAL(clicked()), this, SLOT(cSModeChange_identification2()));
     connect(ui->radioButton_cSMode_handle,          SIGNAL(clicked()), this, SLOT(cSModeChange_handle()));
     connect(ui->checkBox_cSMode_thruster, SIGNAL(toggled(bool)), this, SLOT(cSModeChange_thruster(bool)));
+
+    connect(ui->pushButton_thrusterPower, SIGNAL(toggled(bool)), this, SLOT(powerThrusterToggled(bool)));
+
+    connect(ui->checkBox_stabilizeYaw   , SIGNAL(toggled(bool)), this, SLOT(stabilizeYawToggled(bool)));
+    connect(ui->checkBox_stabilizePitch , SIGNAL(toggled(bool)), this, SLOT(stabilizePitchToggled(bool)));
+    connect(ui->checkBox_stabilizeRoll  , SIGNAL(toggled(bool)), this, SLOT(stabilizeRollToggled(bool)));
+    connect(ui->checkBox_stabilizeMarch , SIGNAL(toggled(bool)), this, SLOT(stabilizeMarchToggled(bool)));
+    connect(ui->checkBox_stabilizeDepth , SIGNAL(toggled(bool)), this, SLOT(stabilizeDepthToggled(bool)));
+    connect(ui->checkBox_stabilizeLag   , SIGNAL(toggled(bool)), this, SLOT(stabilizeLagToggled(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -91,6 +100,34 @@ void MainWindow::cSModeChange_thrusterOff() {
     if (ui->radioButton_cSMode_identification1  ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_1);
     if (ui->radioButton_cSMode_identification2  ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_2);
     if (ui->radioButton_cSMode_handle           ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_HANDLE);
+}
+
+void MainWindow::powerThrusterToggled(bool state) {
+    uv_interface.setThrusterPowerFlag(state);
+}
+
+void MainWindow::stabilizeYawToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_YAW, state);
+}
+
+void MainWindow::stabilizePitchToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_PITCH, state);
+}
+
+void MainWindow::stabilizeRollToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_ROLL, state);
+}
+
+void MainWindow::stabilizeMarchToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_MARCH, state);
+}
+
+void MainWindow::stabilizeDepthToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_DEPTH, state);
+}
+
+void MainWindow::stabilizeLagToggled(bool state) {
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_LAG, state);
 }
 
 
