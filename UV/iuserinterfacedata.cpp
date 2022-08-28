@@ -104,7 +104,6 @@ void IUserInterfaceData::setControlContoursFlags(e_STABILIZATION_CONTOURS contou
 }
 
 void IUserInterfaceData::setCSMode(e_CSMode mode) {
-
     UVMutex.lock();
     UVState.cSMode = mode;
     UVMutex.unlock();

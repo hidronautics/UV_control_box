@@ -7,6 +7,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+//    connect(action_create_vehicle, SIGNAL(triggered()), this, SLOT(createVehicle()));
+//    connect(radioButton_ConnectionConfig, SIGNAL(clicked()), this, SLOT(configConnectionClick()));
+
+
+    connect(ui->radioButton_cSMode_auto,            SIGNAL(clicked()), this, SLOT(cSModeChange_auto()));
+    connect(ui->radioButton_cSMode_identification1, SIGNAL(clicked()), this, SLOT(cSModeChange_identification1()));
+    connect(ui->radioButton_cSMode_identification2, SIGNAL(clicked()), this, SLOT(cSModeChange_identification2()));
+    connect(ui->radioButton_cSMode_handle,          SIGNAL(clicked()), this, SLOT(cSModeChange_handle()));
+    connect(ui->checkBox_cSMode_thruster, SIGNAL(toggled(bool)), this, SLOT(cSModeChange_thruster(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -43,11 +52,64 @@ void MainWindow::updateUi_fromROV() {
     ui->label_vectorNav_q3      ->setText(QString::number(imuData.q3,       'f', 2));
 }
 
-void MainWindow::updateUi_cSModeChange(e_CSMode mode) {
-    if (mode == e_CSMode::MODE_AUTO){
-        ui->radioButton_cSMode_auto ->setChecked(true);
-    }
-
-
-
+void MainWindow::cSModeChange_auto() {
+    uv_interface.setCSMode(e_CSMode::MODE_AUTO);
 }
+
+void MainWindow::cSModeChange_identification1() {
+    uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_1);
+}
+
+void MainWindow::cSModeChange_identification2() {
+    uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_2);
+}
+
+void MainWindow::cSModeChange_handle() {
+    uv_interface.setCSMode(e_CSMode::MODE_HANDLE);
+}
+
+void MainWindow::cSModeChange_thruster(bool checked) {
+    checked ? cSModeChange_thrusterOn() : cSModeChange_thrusterOff();
+}
+
+void MainWindow::cSModeChange_thrusterOn() {
+    ui->radioButton_cSMode_auto             ->setEnabled(false);
+    ui->radioButton_cSMode_identification1  ->setEnabled(false);
+    ui->radioButton_cSMode_identification2  ->setEnabled(false);
+    ui->radioButton_cSMode_handle           ->setEnabled(false);
+
+    uv_interface.setCSMode(e_CSMode::MODE_THRUSTER);
+}
+
+void MainWindow::cSModeChange_thrusterOff() {
+    ui->radioButton_cSMode_auto             ->setEnabled(true);
+    ui->radioButton_cSMode_identification1  ->setEnabled(true);
+    ui->radioButton_cSMode_identification2  ->setEnabled(true);
+    ui->radioButton_cSMode_handle           ->setEnabled(true);
+
+    if (ui->radioButton_cSMode_auto             ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_AUTO);
+    if (ui->radioButton_cSMode_identification1  ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_1);
+    if (ui->radioButton_cSMode_identification2  ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_IDENTIFICATION_2);
+    if (ui->radioButton_cSMode_handle           ->isChecked() == true) uv_interface.setCSMode(e_CSMode::MODE_HANDLE);
+}
+
+
+//void MainWindow::updateUi_cSModeChange() {
+//
+//    e_CSMode mode;
+//    mode = e_CSMode::MODE_HANDLE;
+//
+//    mode == e_CSMode::MODE_AUTO ? ui->radioButton_cSMode_auto->setChecked(true) :
+//    ui->radioButton_cSMode_auto->setChecked(false);
+//
+//    mode == e_CSMode::MODE_IDENTIFICATION_1 ? ui->radioButton_cSMode_identification1->setChecked(true) :
+//    ui->radioButton_cSMode_identification1->setChecked(false);
+//
+//    mode == e_CSMode::MODE_IDENTIFICATION_2 ? ui->radioButton_cSMode_identification2->setChecked(true) :
+//    ui->radioButton_cSMode_identification2->setChecked(false);
+//
+//    mode == e_CSMode::MODE_HANDLE ? ui->radioButton_cSMode_handle->setChecked(true) :
+//    ui->radioButton_cSMode_handle->setChecked(false);
+//}
+
+
