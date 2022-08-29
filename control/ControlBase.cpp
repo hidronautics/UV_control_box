@@ -5,7 +5,7 @@ ControlBase::ControlBase(QString name, int update_time) {
     device_name = name;
 }
 
-void ControlBase::sendAction(e_actionTypes type, double value) {
+void ControlBase::sendAction(e_actionTypes type, float value) {
     switch (type) {
         case SET_MARCH:
             setMarch(value);
@@ -34,28 +34,28 @@ void ControlBase::sendAction(e_actionTypes type, double value) {
     }
 }
 
-void ControlBase::setMarch(double value) {
+void ControlBase::setMarch(float value) {
     interface.setMarch(value);
 //    qDebug() << "setMarch" << value;
 }
 
-void ControlBase::setLag(double value) {
+void ControlBase::setLag(float value) {
     interface.setLag(value);
 }
 
-void ControlBase::setDepth(double value) {
+void ControlBase::setDepth(float value) {
     interface.setDepth(value);
 }
 
-void ControlBase::setRoll(double value) {
+void ControlBase::setRoll(float value) {
     interface.setRoll(value);
 }
 
-void ControlBase::setPitch(double value) {
+void ControlBase::setPitch(float value) {
     interface.setPitch(value);
 }
 
-void ControlBase::setYaw(double value) {
+void ControlBase::setYaw(float value) {
     interface.setYaw(value);
 }
 

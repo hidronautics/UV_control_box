@@ -44,65 +44,65 @@ struct ControlContoursFlags {
 
 struct ImuData {
     ImuData();
-    double ax;
-    double ay;
-    double az;
+    float ax;
+    float ay;
+    float az;
 
-    double wx;
-    double wy;
-    double wz;
+    float wx;
+    float wy;
+    float wz;
 
-    double psi;
-    double teta;
-    double gamma;
+    float psi;
+    float teta;
+    float gamma;
 
-    double q0;
-    double q1;
-    double q2;
-    double q3;
+    float q0;
+    float q1;
+    float q2;
+    float q3;
 };
 
 struct MoutionDataAfterAlgoritms {
     MoutionDataAfterAlgoritms();
-    double ax;
-    double ay;
-    double az;
+    float ax;
+    float ay;
+    float az;
 
-    double vx;
-    double vy;
-    double vz;
+    float vx;
+    float vy;
+    float vz;
 
-    double vxg;
-    double vyg;
-    double vzg;
+    float vxg;
+    float vyg;
+    float vzg;
 
-    double x;
-    double y;
-    double z;
+    float x;
+    float y;
+    float z;
 
-    double wx;
-    double wy;
-    double wz;
+    float wx;
+    float wy;
+    float wz;
 
-    double dPsi;
-    double dTeta;
-    double dGamma;
+    float dPsi;
+    float dTeta;
+    float dGamma;
 
-    double psi;
-    double teta;
-    double gamma;
+    float psi;
+    float teta;
+    float gamma;
 
-    double q0;
-    double q1;
-    double q2;
-    double q3;
+    float q0;
+    float q1;
+    float q2;
+    float q3;
 };
 
 struct Thruster {
     Thruster();
     int id;
-    double velocity;
-    double current;
+    float velocity;
+    float current;
 };
 
 struct ConnectionFlags {
@@ -125,7 +125,7 @@ public:
 
     ImuData imuData;
     MoutionDataAfterAlgoritms moutionDataAfterAlgoritms;
-    double depth;
+    float depth;
 
     Thruster *thruster;
 

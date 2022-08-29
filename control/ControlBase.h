@@ -30,22 +30,22 @@ protected:
         ROTATE_TILT_DOWN
     };
 
-    void sendAction(e_actionTypes type, double value);
+    void sendAction(e_actionTypes type, float value);
 
-    void setMarch(double value);
-    void setLag(double value);
-    void setDepth(double value);
-    void setRoll(double value);
-    void setPitch(double value);
-    void setYaw(double value);
-    void setTilt(double value);
+    void setMarch(float value);
+    void setLag(float value);
+    void setDepth(float value);
+    void setRoll(float value);
+    void setPitch(float value);
+    void setYaw(float value);
+    void setTilt(float value);
 
-    void clenchGrab(double value);
-    void unclenchGrab(double value);
-    void rotateGrabRight(double value);
-    void rotateGrabLeft(double value);
-    void rotateTiltUp(double value);
-    void rotateTiltDown(double value);
+    void clenchGrab(float value);
+    void unclenchGrab(float value);
+    void rotateGrabRight(float value);
+    void rotateGrabLeft(float value);
+    void rotateTiltUp(float value);
+    void rotateTiltDown(float value);
 
     double Sensitivity(double value, double deadZone, double maxValue);
     double Sensitivity(double value, double deadZone, double pointX, double pointY, double maxValue);

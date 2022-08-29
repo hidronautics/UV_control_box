@@ -54,17 +54,11 @@ public:
     }
 
     QHostAddress ip_receiver() { return m_ip_receiver; }
-
     QHostAddress ip_sender() { return m_ip_sender; }
-
     int port_receiver() { return m_port_receiver; }
-
     int port_sender() { return m_port_sender; }
-
     float frequency() { return m_frequency; }
-
     bool bindState() { return bindState_; }
-
     void setCheckState(bool state) { checkState = state; }
 
 private:
@@ -99,9 +93,7 @@ private:
     } //функция, которая вычисляет контроьную сумму и записывает
     //ее в переменную checksum структуры отправки
 
-public
-
-    slots :
+public slots :
     void sendData() {
         aboutSend();//считаем контрольную сумму и записываем ее в переменную checksum структуры send_data (типа SendStruct)
         //Отсылаем структуру send_data на ip_sender на порт port_sender
@@ -168,11 +160,8 @@ public:
 
     QTimer *timer; //таймер для отправки данных с определенной частотой
     virtual void set_ip_receiver(QHostAddress ip) { m_ip_receiver = ip; }
-
     virtual void set_ip_sender(QHostAddress ip) { m_ip_sender = ip; }
-
     virtual void set_port_receiver(int port) { m_port_receiver = port; }
-
     virtual void set_port_sender(int port) { m_port_sender = port; }
 
 private:
