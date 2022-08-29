@@ -36,7 +36,6 @@ namespace Pult {
     public slots :
         //запуск обмена
         void startExchange() {
-            send_data = uv_server.generateFullMessage();
             timer->start(1000 / udpProtocol->getFrequency());
         }
 
@@ -46,6 +45,7 @@ namespace Pult {
         }
 
         void sendData() {
+            send_data = uv_server.generateFullMessage();
             udpProtocol->send_data = send_data;
             udpProtocol->sendData();
             emit(dataReceived());
