@@ -113,6 +113,27 @@ struct ConnectionFlags {
     bool thrusterController;
 };
 
+struct ToPult {
+    // эти структуры реализованы в uv_state
+    ImuData imuData;
+    float depth;
+
+    ConnectionFlags connectionFlags;
+    uint checksum;
+};
+
+//структура данных, которая передается из плнировщика в АНПА
+struct FromPult {
+    // эти структуры и енумы реализованы в uv_state
+    ControlData controlData;
+    ControlContoursFlags controlContoursFlags;
+    e_CSMode cSMode;
+
+    bool resetImu;
+    bool thrusterPower;
+    uint checksum;
+};
+
 class UV_State {
 public:
     UV_State();

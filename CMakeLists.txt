@@ -36,7 +36,7 @@ set(PROJECT_SOURCES
         UV/icontroldata.cpp
         UV/iuserinterfacedata.cpp
         UV/ibasicdata.cpp
-#        UV/iserverdata.cpp
+        UV/iserverdata.cpp
         UV/uv_state.cpp
 
         control/Control.cpp
@@ -45,8 +45,6 @@ set(PROJECT_SOURCES
         control/Joystick.cpp
         control/Keyboard.cpp
 
-#        communication/UdpClient.cpp
-
         PicFrame/picframe.cpp
         #----------------------------------
         mainwindow.h
@@ -54,7 +52,7 @@ set(PROJECT_SOURCES
         UV/icontroldata.h
         UV/iuserinterfacedata.h
         UV/ibasicdata.h
-#        UV/iserverdata.h
+        UV/iserverdata.h
         UV/uv_state.h
 
         control/Control.h
@@ -63,7 +61,8 @@ set(PROJECT_SOURCES
         control/Joystick.h
         control/Keyboard.h
 
-#        communication/UdpClient.h
+        communication/pultcontrolsystemprotocols.h
+        communication/udp_protocol.h
 
         PicFrame/picframe.h
         #----------------------------------

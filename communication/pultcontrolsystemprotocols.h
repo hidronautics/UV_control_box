@@ -9,24 +9,6 @@
 
 //структура данных, которая передается из Северова в Пульт
 //тут описаны данные, которые Пульт принимает от Северова
-struct ToPult {
-    ImuData imuData;
-    float depth;
-
-    ConnectionFlags connectionFlags;
-    uint checksum;
-};
-
-//структура данных, которая передается из плнировщика в АНПА
-struct FromPult {
-    ControlData controlData;
-    ControlContoursFlags controlContoursFlags;
-    e_CSMode cSMode;
-
-    bool resetImu;
-    bool thrusterPower;
-    uint checksum;
-};
 
 #pragma pack (pop)
 
@@ -66,6 +48,7 @@ namespace Pult {
         void sendData() {
             udpProtocol->send_data = send_data;
             udpProtocol->sendData();
+            emit(dataReceived());
         }
 
         void receiveData() {

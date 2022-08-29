@@ -5,7 +5,6 @@
 #include <QByteArray>
 
 #include "ibasicdata.h"
-#include "pultcontrolsystemprotocols.h"
 
 class IServerData : public IBasicData {
 public:

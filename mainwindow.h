@@ -15,8 +15,8 @@
 #include <QThread>
 #include <QTimer>
 
-
 #include "UV/iuserinterfacedata.h"
+#include "pultcontrolsystemprotocols.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -53,6 +53,7 @@ private:
     Ui::MainWindow *ui;
 
     IUserInterfaceData uv_interface;
+    Pult::PC_Protocol *pultProtocol;
 
     void cSModeChange_thrusterOn();
     void cSModeChange_thrusterOff();
