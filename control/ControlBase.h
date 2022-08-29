@@ -38,14 +38,6 @@ protected:
     void setRoll(float value);
     void setPitch(float value);
     void setYaw(float value);
-    void setTilt(float value);
-
-    void clenchGrab(float value);
-    void unclenchGrab(float value);
-    void rotateGrabRight(float value);
-    void rotateGrabLeft(float value);
-    void rotateTiltUp(float value);
-    void rotateTiltDown(float value);
 
     double Sensitivity(double value, double deadZone, double maxValue);
     double Sensitivity(double value, double deadZone, double pointX, double pointY, double maxValue);

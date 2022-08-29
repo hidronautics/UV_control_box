@@ -41,7 +41,6 @@ set(PROJECT_SOURCES
 
         control/Control.cpp
         control/ControlBase.cpp
-        control/ControlWindow.cpp
         control/Joystick.cpp
         control/Keyboard.cpp
 
@@ -57,7 +56,6 @@ set(PROJECT_SOURCES
 
         control/Control.h
         control/ControlBase.h
-        control/ControlWindow.h
         control/Joystick.h
         control/Keyboard.h
 
@@ -67,7 +65,6 @@ set(PROJECT_SOURCES
         PicFrame/picframe.h
         #----------------------------------
         mainwindow.ui
-        control/ControlWindow.ui
         PicFrame/picframe.ui
         )
 
