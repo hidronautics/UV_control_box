@@ -7,9 +7,6 @@
 
 #pragma pack(push, 1)
 
-//структура данных, которая передается из Северова в Пульт
-//тут описаны данные, которые Пульт принимает от Северова
-
 #pragma pack (pop)
 
 //класс обмена Северов - Пульт, который создается в Пульте
@@ -37,6 +34,7 @@ namespace Pult {
         //запуск обмена
         void startExchange() {
             timer->start(1000 / udpProtocol->getFrequency());
+            receiveData();
         }
 
         //остановить обмен
@@ -54,6 +52,8 @@ namespace Pult {
         void receiveData() {
             udpProtocol->receiveData();
             rec_data = udpProtocol->rec_data;
+            rec_data.imuData.psi = 345;
+            rec_data.depth = 2.345;
             uv_server.parseFullMessage(rec_data);
         }
 

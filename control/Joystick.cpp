@@ -41,6 +41,9 @@ Joystick::Joystick(QString name, int update_time, unsigned int joy_id) :
 void Joystick::updateDevice() {
     sf::Joystick::update();
 
+    sendAction(e_actionTypes::SET_PITCH, 323.435);
+    sendAction(e_actionTypes::SET_MARCH, 3283.435);
+
     for (unsigned int i = 0; i < sizeof(axis_table) / sizeof(axis_table[0]); i++) {
         if (axis_table[i].axis == sf::Joystick::Y) { marchTrim = sf::Joystick::getAxisPosition(id, axis_table[i].axis) *
                                                                  axis_table[i].multiplier;

@@ -4,7 +4,7 @@
 
 IUserInterfaceData::IUserInterfaceData()
         : IBasicData() {
-
+    setControlContoursFlags(e_StabilizationContours::CONTOUR_ROLL, true);
 }
 
 ControlData IUserInterfaceData::getControlData() {

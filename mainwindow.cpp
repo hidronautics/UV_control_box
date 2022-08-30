@@ -7,10 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-//    connect(action_create_vehicle, SIGNAL(triggered()), this, SLOT(createVehicle()));
-//    connect(radioButton_ConnectionConfig, SIGNAL(clicked()), this, SLOT(configConnectionClick()));
-
-
     connect(ui->radioButton_cSMode_auto,            SIGNAL(clicked()), this, SLOT(cSModeChange_auto()));
     connect(ui->radioButton_cSMode_identification1, SIGNAL(clicked()), this, SLOT(cSModeChange_identification1()));
     connect(ui->radioButton_cSMode_identification2, SIGNAL(clicked()), this, SLOT(cSModeChange_identification2()));
@@ -33,6 +29,15 @@ MainWindow::MainWindow(QWidget *parent)
     pultProtocol->startExchange();
 
     connect(pultProtocol, SIGNAL(dataReceived()), this, SLOT(updateUi_fromROV()));
+    connect(this, SIGNAL(updateCompass(double)), ui->compassFrame, SLOT(setYaw(double)));
+    connect(this, SIGNAL(updateDepth(int)), ui->progressBar_depth, SLOT(setValue(int)));
+    connect(this, SIGNAL(updateDepth(double)), ui->lable_depth, SLOT(setNum(double)));
+
+    joystick = new Joystick("Joystick", 10, 0);
+
+//    connect(joystick, SIGNAL(controlChanged()), this, SLOT(updateUi_fromControl()));
+    update_timer = new QTimer(this);
+    connect(update_timer, SIGNAL(timeout()), this, SLOT(updateUi_fromControl()));
 
 }
 
@@ -49,11 +54,14 @@ void MainWindow::updateUi_fromControl() {
     ui->label_control_depth     ->setText(QString::number(control.depth,    'f', 2));
     ui->label_control_yaw       ->setText(QString::number(control.yaw,      'f', 2));
     ui->label_control_roll      ->setText(QString::number(control.roll,     'f', 2));
-    ui->label_control_pitch     ->setText(QString::number(control.roll,     'f', 2));
+    ui->label_control_pitch     ->setText(QString::number(control.pitch,    'f', 2));
+    qDebug() << "pitch" << control.pitch;
+    qDebug() << "march" << control.march;
 }
 
 void MainWindow::updateUi_fromROV() {
     ImuData imuData = uv_interface.getImuData();
+    float depth = uv_interface.getDepth();
 
     ui->label_vectorNav_ax      ->setText(QString::number(imuData.ax,       'f', 2));
     ui->label_vectorNav_ay      ->setText(QString::number(imuData.ay,       'f', 2));
@@ -68,6 +76,10 @@ void MainWindow::updateUi_fromROV() {
     ui->label_vectorNav_q1      ->setText(QString::number(imuData.q1,       'f', 2));
     ui->label_vectorNav_q2      ->setText(QString::number(imuData.q2,       'f', 2));
     ui->label_vectorNav_q3      ->setText(QString::number(imuData.q3,       'f', 2));
+
+    emit(updateCompass(imuData.psi));
+    emit(updateDepth(int(depth*100)));
+    emit(updateDepth(double(depth)));
 }
 
 void MainWindow::cSModeChange_auto() {

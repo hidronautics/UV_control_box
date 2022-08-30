@@ -11,6 +11,9 @@ Q_OBJECT
 public:
     ControlBase(QString name, int update_time);
 
+signals:
+    void controlChanged();
+
 protected:
     QString device_name;
 

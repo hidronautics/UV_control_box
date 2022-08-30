@@ -36,7 +36,6 @@ void ControlBase::sendAction(e_actionTypes type, float value) {
 
 void ControlBase::setMarch(float value) {
     interface.setMarch(value);
-//    qDebug() << "setMarch" << value;
 }
 
 void ControlBase::setLag(float value) {

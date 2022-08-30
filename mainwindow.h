@@ -17,6 +17,7 @@
 
 #include "UV/iuserinterfacedata.h"
 #include "pultcontrolsystemprotocols.h"
+#include "control/Joystick.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -49,7 +50,14 @@ private slots:
     void stabilizeDepthToggled(bool state);
     void stabilizeLagToggled(bool state);
 
+signals:
+    void updateCompass(double yaw);
+    void updateDepth(int depth);
+    void updateDepth(double depth);
+
 private:
+    QTimer *update_timer;
+
     Ui::MainWindow *ui;
 
     IUserInterfaceData uv_interface;
@@ -57,6 +65,8 @@ private:
 
     void cSModeChange_thrusterOn();
     void cSModeChange_thrusterOff();
+
+    Joystick *joystick = nullptr;
 
 };
 #endif // MAINWINDOW_H

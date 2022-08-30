@@ -904,7 +904,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -923,7 +923,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -961,7 +961,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -980,7 +980,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -999,7 +999,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -1075,7 +1075,7 @@
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>90</width>
                <height>16</height>
               </size>
              </property>
@@ -2005,7 +2005,7 @@
               </sizepolicy>
              </property>
              <property name="maximum">
-              <number>10</number>
+              <number>1000</number>
              </property>
              <property name="value">
               <number>0</number>
@@ -2028,7 +2028,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="depthLabel">
+            <widget class="QLabel" name="lable_depth">
              <property name="text">
               <string>0</string>
              </property>

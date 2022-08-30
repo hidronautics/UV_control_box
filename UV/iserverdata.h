@@ -8,7 +8,7 @@
 
 class IServerData : public IBasicData {
 public:
-    IServerData();
+    IServerData() = default;
 
     FromPult generateFullMessage();
 
