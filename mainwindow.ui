@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
+    <width>955</width>
     <height>755</height>
    </rect>
   </property>
@@ -936,13 +936,13 @@
             <widget class="QLabel" name="label_control_yaw">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>
@@ -1012,13 +1012,13 @@
             <widget class="QLabel" name="label_control_depth">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>
@@ -1031,13 +1031,13 @@
             <widget class="QLabel" name="label_control_pitch">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>
@@ -1050,13 +1050,13 @@
             <widget class="QLabel" name="label_control_roll">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>
@@ -1088,13 +1088,13 @@
             <widget class="QLabel" name="label_control_march">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>
@@ -1107,13 +1107,13 @@
             <widget class="QLabel" name="label_control_lag">
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>75</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>50</width>
+               <width>2000</width>
                <height>16777215</height>
               </size>
              </property>

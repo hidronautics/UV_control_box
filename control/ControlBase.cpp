@@ -30,7 +30,6 @@ void ControlBase::sendAction(e_actionTypes type, float value) {
         case SET_YAW:
             setYaw(value);
             break;
-
     }
 }
 

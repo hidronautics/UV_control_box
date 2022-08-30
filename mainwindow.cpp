@@ -36,8 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
     joystick = new Joystick("Joystick", 10, 0);
 
 //    connect(joystick, SIGNAL(controlChanged()), this, SLOT(updateUi_fromControl()));
-    update_timer = new QTimer(this);
-    connect(update_timer, SIGNAL(timeout()), this, SLOT(updateUi_fromControl()));
+    updateControl_timer = new QTimer(this);
+    connect(updateControl_timer, SIGNAL(timeout()), this, SLOT(updateUi_fromControl()));
+    updateControl_timer->start(10);
 
 }
 
@@ -55,8 +56,6 @@ void MainWindow::updateUi_fromControl() {
     ui->label_control_yaw       ->setText(QString::number(control.yaw,      'f', 2));
     ui->label_control_roll      ->setText(QString::number(control.roll,     'f', 2));
     ui->label_control_pitch     ->setText(QString::number(control.pitch,    'f', 2));
-    qDebug() << "pitch" << control.pitch;
-    qDebug() << "march" << control.march;
 }
 
 void MainWindow::updateUi_fromROV() {

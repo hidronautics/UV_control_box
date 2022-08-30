@@ -56,7 +56,7 @@ signals:
     void updateDepth(double depth);
 
 private:
-    QTimer *update_timer;
+    QTimer *updateControl_timer;
 
     Ui::MainWindow *ui;
 

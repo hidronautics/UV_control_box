@@ -24,13 +24,6 @@ protected:
         SET_ROLL,
         SET_PITCH,
         SET_YAW,
-        SET_TILT,
-        CLENCH_GRAB,
-        UNCLENCH_GRAB,
-        ROTATE_GRAB_RIGHT,
-        ROTATE_GRAB_LEFT,
-        ROTATE_TILT_UP,
-        ROTATE_TILT_DOWN
     };
 
     void sendAction(e_actionTypes type, float value);

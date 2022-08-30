@@ -39,10 +39,8 @@ set(PROJECT_SOURCES
         UV/iserverdata.cpp
         UV/uv_state.cpp
 
-        control/Control.cpp
         control/ControlBase.cpp
         control/Joystick.cpp
-        control/Keyboard.cpp
 
         PicFrame/picframe.cpp
         #----------------------------------
@@ -54,10 +52,8 @@ set(PROJECT_SOURCES
         UV/iserverdata.h
         UV/uv_state.h
 
-        control/Control.h
         control/ControlBase.h
         control/Joystick.h
-        control/Keyboard.h
 
         communication/pultcontrolsystemprotocols.h
         communication/udp_protocol.h
