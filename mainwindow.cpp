@@ -39,7 +39,6 @@ MainWindow::MainWindow(QWidget *parent)
     updateControl_timer = new QTimer(this);
     connect(updateControl_timer, SIGNAL(timeout()), this, SLOT(updateUi_fromControl()));
     updateControl_timer->start(10);
-
 }
 
 MainWindow::~MainWindow()

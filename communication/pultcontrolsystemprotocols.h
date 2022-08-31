@@ -46,15 +46,13 @@ namespace Pult {
             send_data = uv_server.generateFullMessage();
             udpProtocol->send_data = send_data;
             udpProtocol->sendData();
-            emit(dataReceived());
         }
 
         void receiveData() {
             udpProtocol->receiveData();
             rec_data = udpProtocol->rec_data;
-            rec_data.imuData.psi = 345;
-            rec_data.depth = 2.345;
             uv_server.parseFullMessage(rec_data);
+            emit(dataReceived());
         }
 
     public:
