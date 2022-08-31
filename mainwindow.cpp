@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->checkBox_stabilizeDepth , SIGNAL(toggled(bool)), this, SLOT(stabilizeDepthToggled(bool)));
     connect(ui->checkBox_stabilizeLag   , SIGNAL(toggled(bool)), this, SLOT(stabilizeLagToggled(bool)));
 
-    pultProtocol = new Pult::PC_Protocol(QHostAddress("127.0.0.1"), 13021, QHostAddress::LocalHost,
+    pultProtocol = new Pult::PC_Protocol(QHostAddress("192.168.2.7"), 13021, QHostAddress("192.168.2.5"),
                                           13020, 10);
 
     qDebug() << "-----start exchange";

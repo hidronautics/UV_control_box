@@ -5,7 +5,7 @@
 
 #include <QDebug>
 
-enum e_CSMode {
+enum class e_CSMode : unsigned char {
     MODE_HANDLE = 0,
     MODE_IDENTIFICATION_1,
     MODE_IDENTIFICATION_2,
@@ -13,7 +13,7 @@ enum e_CSMode {
     MODE_THRUSTER
 };
 
-enum e_StabilizationContours {
+enum class e_StabilizationContours: unsigned char {
     CONTOUR_DEPTH = 0,
     CONTOUR_MARCH,
     CONTOUR_LAG,
@@ -21,6 +21,10 @@ enum e_StabilizationContours {
     CONTOUR_ROLL,
     CONTOUR_PITCH
 };
+
+#pragma pack(push,1)
+//структура данных, которая передается из Северова в Пульт
+//тут описаны данные, которые Пульт принимает от Северова
 
 struct ControlData {
     ControlData();
@@ -34,12 +38,12 @@ struct ControlData {
 
 struct ControlContoursFlags {
     ControlContoursFlags();
-    bool yaw;
-    bool pitch;
-    bool roll;
-    bool march;
-    bool depth;
-    bool lag;
+    quint8 yaw;
+    quint8 pitch;
+    quint8 roll;
+    quint8 march;
+    quint8 depth;
+    quint8 lag;
 };
 
 struct ImuData {
@@ -107,14 +111,13 @@ struct Thruster {
 
 struct ConnectionFlags {
     ConnectionFlags();
-    bool vectorNav;
-    bool joystick;
-    bool controlSystem;
-    bool thrusterController;
+    quint8 vectorNav;
+    quint8 joystick;
+    quint8 controlSystem;
+    quint8 thrusterController;
 };
 
 struct ToPult {
-    // эти структуры реализованы в uv_state
     ImuData imuData;
     float depth;
 
@@ -129,10 +132,12 @@ struct FromPult {
     ControlContoursFlags controlContoursFlags;
     e_CSMode cSMode;
 
-    bool resetImu;
-    bool thrusterPower;
+    quint8 resetImu;
+    quint8 thrusterPower;
     uint checksum;
 };
+
+#pragma pack (pop)
 
 class UV_State {
 public:

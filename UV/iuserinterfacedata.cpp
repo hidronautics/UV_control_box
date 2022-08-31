@@ -71,33 +71,33 @@ void IUserInterfaceData::setThrusterVelocity(int id, double value) {
 
 void IUserInterfaceData::setControlContoursFlags(e_StabilizationContours contour, bool value) {
     switch (contour) {
-        case CONTOUR_DEPTH:
+        case e_StabilizationContours::CONTOUR_DEPTH:
             qDebug() << "CONTOUR_DEPTH setted to" << value;
             UVMutex.lock();
             UVState.controlContoursFlags.depth = value;
             UVMutex.unlock();
 
-        case CONTOUR_LAG:
+        case e_StabilizationContours::CONTOUR_LAG:
             UVMutex.lock();
             UVState.controlContoursFlags.lag = value;
             UVMutex.unlock();
 
-        case CONTOUR_MARCH:
+        case e_StabilizationContours::CONTOUR_MARCH:
             UVMutex.lock();
             UVState.controlContoursFlags.march = value;
             UVMutex.unlock();
 
-        case CONTOUR_PITCH:
+        case e_StabilizationContours::CONTOUR_PITCH:
             UVMutex.lock();
             UVState.controlContoursFlags.pitch = value;
             UVMutex.unlock();
 
-        case CONTOUR_ROLL:
+        case e_StabilizationContours::CONTOUR_ROLL:
             UVMutex.lock();
             UVState.controlContoursFlags.roll = value;
             UVMutex.unlock();
 
-        case CONTOUR_YAW:
+        case e_StabilizationContours::CONTOUR_YAW:
             UVMutex.lock();
             UVState.controlContoursFlags.yaw = value;
             UVMutex.unlock();
@@ -105,7 +105,6 @@ void IUserInterfaceData::setControlContoursFlags(e_StabilizationContours contour
 }
 
 void IUserInterfaceData::setCSMode(e_CSMode mode) {
-    qDebug() << "CSMode" << mode;
     UVMutex.lock();
     UVState.cSMode = mode;
     UVMutex.unlock();

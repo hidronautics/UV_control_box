@@ -28,12 +28,12 @@ ControlData::ControlData() {
 }
 
 ControlContoursFlags::ControlContoursFlags() {
-    yaw = false;
-    pitch = false;
-    roll = false;
-    march = false;
-    depth = false;
-    lag = false;
+    yaw = 0;
+    pitch = 0;
+    roll = 0;
+    march = 0;
+    depth = 0;
+    lag = 0;
 }
 
 ImuData::ImuData() {
@@ -97,8 +97,8 @@ Thruster::Thruster() {
 }
 
 ConnectionFlags::ConnectionFlags() {
-    vectorNav = false;
-    joystick = false;
-    controlSystem = false;
-    thrusterController = false;
+    vectorNav = 0;
+    joystick = 0;
+    controlSystem = 0;
+    thrusterController = 0;
 }
