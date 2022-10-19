@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->checkBox_stabilizeDepth , SIGNAL(toggled(bool)), this, SLOT(stabilizeDepthToggled(bool)));
     connect(ui->checkBox_stabilizeLag   , SIGNAL(toggled(bool)), this, SLOT(stabilizeLagToggled(bool)));
 
-    pultProtocol = new Pult::PC_Protocol(QHostAddress("192.168.2.7"), 13021, QHostAddress("192.168.2.5"),
+    pultProtocol = new Pult::PC_Protocol(QHostAddress("192.168.4.1"), 13021, QHostAddress("192.168.4.2"),
                                           13020, 10);
 
     qDebug() << "-----start exchange";
@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
     updateControl_timer = new QTimer(this);
     connect(updateControl_timer, SIGNAL(timeout()), this, SLOT(updateUi_fromControl()));
     updateControl_timer->start(10);
+
+    ui->pushButton_thrusterPower->toggled(true);
+//    ui->pushButton_thrusterPower->f;
 }
 
 MainWindow::~MainWindow()
@@ -123,6 +126,9 @@ void MainWindow::cSModeChange_thrusterOff() {
 
 void MainWindow::powerThrusterToggled(bool state) {
     uv_interface.setThrusterPowerFlag(state);
+    state ? ui->pushButton_thrusterPower->setText("ВМА ВЫКЛючены") : ui->pushButton_thrusterPower->setText("ВМА ВКЛючены");
+
+    qDebug() << "setThrusterPowerFlag" << state;
 }
 
 void MainWindow::stabilizeYawToggled(bool state) {

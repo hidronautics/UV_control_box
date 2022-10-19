@@ -13,12 +13,12 @@ axial u - глубина
 */
 
 const Joystick::control_axis Joystick::axis_table[] = {
-        {sf::Joystick::R,    320,  SET_YAW},
-        {sf::Joystick::Y,    -320, SET_MARCH},
-        {sf::Joystick::X,    320,  SET_LAG},
-        {sf::Joystick::Z,    320,  SET_DEPTH},
-        {sf::Joystick::PovX, 200,  SET_ROLL},
-        {sf::Joystick::PovY, 200,  SET_PITCH}
+        {sf::Joystick::R,    0.3,  SET_YAW},
+        {sf::Joystick::Y,    -0.3, SET_MARCH},
+        {sf::Joystick::X,    0.3,  SET_LAG},
+        {sf::Joystick::Z,    0.3,  SET_DEPTH},
+        {sf::Joystick::PovX, 0.2,  SET_ROLL},
+        {sf::Joystick::PovY, 0.2,  SET_PITCH}
 };
 
 Joystick::Joystick(QString name, int update_time, unsigned int joy_id) :

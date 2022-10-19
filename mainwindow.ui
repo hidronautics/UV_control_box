@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
+    <width>990</width>
     <height>755</height>
    </rect>
   </property>
@@ -508,70 +508,110 @@
            <item row="1" column="1">
             <widget class="QLabel" name="label_36">
              <property name="text">
-              <string>w</string>
+              <string>k_2</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-             <property name="maximum">
-              <double>100000.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="label_37">
-             <property name="text">
-              <string>phi</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="label_35">
              <property name="text">
-              <string>a</string>
+              <string>k_1</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="2" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+           <item row="1" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_2">
              <property name="minimum">
-              <double>-100.000000000000000</double>
+              <double>-1000.000000000000000</double>
              </property>
              <property name="maximum">
-              <double>100.000000000000000</double>
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>k_3</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_1">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
              <property name="maximum">
-              <double>1000000.000000000000000</double>
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.500000000000000</double>
              </property>
             </widget>
            </item>
-           <item row="0" column="0" rowspan="3">
-            <layout class="QVBoxLayout" name="verticalLayout_23">
-             <item>
-              <widget class="QComboBox" name="comboBox">
-               <property name="minimumSize">
-                <size>
-                 <width>200</width>
-                 <height>1</height>
-                </size>
+           <item row="2" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_3">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" rowspan="4">
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0" colspan="2">
+              <widget class="QComboBox" name="comboBox_typicalInput_selectedContour">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="editable">
+                <bool>false</bool>
                </property>
                <item>
                 <property name="text">
-                 <string>a*sin(wt+phi)</string>
+                 <string>Курс</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Дифферент</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Крен</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Марш</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Лаг</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Глубина</string>
                 </property>
                </item>
                <item>
@@ -581,14 +621,86 @@
                </item>
               </widget>
              </item>
-             <item>
-              <widget class="QPushButton" name="pushButton">
+             <item row="1" column="0" colspan="2">
+              <widget class="QComboBox" name="comboBox_typicalInput_shape">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>1</height>
+                </size>
+               </property>
+               <property name="editable">
+                <bool>false</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>k_1 (Step)</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>k_1 * sin(k_2 + k_3*t)</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_13">
                <property name="text">
-                <string>запуск</string>
+                <string>Прошло</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QPushButton" name="pushButton_typicalInput_start">
+               <property name="text">
+                <string>Запуск</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QPushButton" name="pushButton__typicalInput_stop">
+               <property name="text">
+                <string>Стоп</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label__typicalInput_timePassed">
+               <property name="text">
+                <string>0</string>
                </property>
               </widget>
              </item>
             </layout>
+           </item>
+           <item row="3" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_T">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>T, сек.</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
