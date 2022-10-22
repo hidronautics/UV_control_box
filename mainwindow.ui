@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>990</width>
-    <height>755</height>
+    <width>992</width>
+    <height>765</height>
    </rect>
   </property>
   <property name="palette">
@@ -534,7 +534,7 @@
               <double>1000.000000000000000</double>
              </property>
              <property name="singleStep">
-              <double>0.500000000000000</double>
+              <double>0.010000000000000</double>
              </property>
             </widget>
            </item>
@@ -557,7 +557,7 @@
               <double>1000.000000000000000</double>
              </property>
              <property name="singleStep">
-              <double>0.500000000000000</double>
+              <double>0.010000000000000</double>
              </property>
             </widget>
            </item>
@@ -570,7 +570,7 @@
               <double>1000.000000000000000</double>
              </property>
              <property name="singleStep">
-              <double>0.500000000000000</double>
+              <double>0.010000000000000</double>
              </property>
             </widget>
            </item>
@@ -664,14 +664,14 @@
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QPushButton" name="pushButton__typicalInput_stop">
+              <widget class="QPushButton" name="pushButton_typicalInput_stop">
                <property name="text">
                 <string>Стоп</string>
                </property>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLabel" name="label__typicalInput_timePassed">
+              <widget class="QLabel" name="label_typicalInput_timePassed">
                <property name="text">
                 <string>0</string>
                </property>
@@ -679,26 +679,23 @@
              </item>
             </layout>
            </item>
-           <item row="3" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_T">
-             <property name="minimum">
-              <double>-1000.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>1000.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.500000000000000</double>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="1">
             <widget class="QLabel" name="label_7">
              <property name="text">
-              <string>T, сек.</string>
+              <string>T, мсек.</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QSpinBox" name="spinBox_typicalInput_T">
+             <property name="maximum">
+              <number>15000</number>
+             </property>
+             <property name="singleStep">
+              <number>100</number>
              </property>
             </widget>
            </item>
@@ -781,7 +778,7 @@
         <item>
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
-           <string>режим СУ</string>
+           <string>Режим СУ</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -795,7 +792,7 @@
              <item>
               <widget class="QRadioButton" name="radioButton_cSMode_handle">
                <property name="text">
-                <string>ручной</string>
+                <string>Ручной</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -808,21 +805,21 @@
              <item>
               <widget class="QRadioButton" name="radioButton_cSMode_identification1">
                <property name="text">
-                <string>идентификация 1</string>
+                <string>Идентификация 1</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QRadioButton" name="radioButton_cSMode_identification2">
                <property name="text">
-                <string>идентификация 2</string>
+                <string>Идентификация 2</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QRadioButton" name="radioButton_cSMode_auto">
                <property name="text">
-                <string>автоматизированный</string>
+                <string>Автоматизированный</string>
                </property>
               </widget>
              </item>
@@ -873,7 +870,7 @@
         <item>
          <widget class="QGroupBox" name="groupBox_12">
           <property name="title">
-           <string>контуры стаб.</string>
+           <string>Контуры стаб.</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>

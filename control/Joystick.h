@@ -22,10 +22,13 @@ public:
 public slots:
 
     void updateDevice();
+    void setOn();
+    void setOff();
 
 private:
     int id;
     QTimer *update_timer;
+    bool on;
 
     /* Axis processing table element structure */
     struct control_axis {

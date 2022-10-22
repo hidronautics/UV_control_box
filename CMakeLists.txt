@@ -41,6 +41,7 @@ set(PROJECT_SOURCES
 
         control/ControlBase.cpp
         control/Joystick.cpp
+        control/Step.cpp
 
         PicFrame/picframe.cpp
         #----------------------------------
@@ -54,6 +55,7 @@ set(PROJECT_SOURCES
 
         control/ControlBase.h
         control/Joystick.h
+        control/Step.h
 
         communication/pultcontrolsystemprotocols.h
         communication/udp_protocol.h

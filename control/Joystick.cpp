@@ -22,8 +22,9 @@ const Joystick::control_axis Joystick::axis_table[] = {
 };
 
 Joystick::Joystick(QString name, int update_time, unsigned int joy_id) :
-        ControlBase(name, update_time) {
+        ControlBase(name) {
     id = joy_id;
+    this->on = true;
 
     update_timer = new QTimer(this);
     connect(update_timer, SIGNAL(timeout()), this, SLOT(updateDevice()));
@@ -31,16 +32,31 @@ Joystick::Joystick(QString name, int update_time, unsigned int joy_id) :
 }
 
 void Joystick::updateDevice() {
-    sf::Joystick::update();
+    if (this->on) {
+        sf::Joystick::update();
 
+        for (unsigned int i = 0; i < sizeof(axis_table) / sizeof(axis_table[0]); i++) {
+            if (axis_table[i].axis == sf::Joystick::Y) {
+                marchTrim = sf::Joystick::getAxisPosition(id, axis_table[i].axis) *
+                            axis_table[i].multiplier;
+            }
+            if (axis_table[i].axis == sf::Joystick::R) {
+                yawTrim = sf::Joystick::getAxisPosition(id, axis_table[i].axis) *
+                          axis_table[i].multiplier;
+            }
+            sendAction(axis_table[i].action,
+                       (sf::Joystick::getAxisPosition(id, axis_table[i].axis) * axis_table[i].multiplier));
+        }
+    }
+}
+
+void Joystick::setOn() {
+    this->on = true;
+}
+
+void Joystick::setOff() {
+    this->on = false;
     for (unsigned int i = 0; i < sizeof(axis_table) / sizeof(axis_table[0]); i++) {
-        if (axis_table[i].axis == sf::Joystick::Y) { marchTrim = sf::Joystick::getAxisPosition(id, axis_table[i].axis) *
-                                                                 axis_table[i].multiplier;
-        }
-        if (axis_table[i].axis == sf::Joystick::R) { yawTrim = sf::Joystick::getAxisPosition(id, axis_table[i].axis) *
-                                                               axis_table[i].multiplier;
-        }
-        sendAction(axis_table[i].action,
-                   (sf::Joystick::getAxisPosition(id, axis_table[i].axis) * axis_table[i].multiplier));
+        sendAction(axis_table[i].action, 0);
     }
 }

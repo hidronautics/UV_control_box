@@ -1,7 +1,7 @@
 #include "ControlBase.h"
 #include <QDebug>
 
-ControlBase::ControlBase(QString name, int update_time) {
+ControlBase::ControlBase(QString name) {
     device_name = name;
 }
 

@@ -11,6 +11,7 @@ FromPult IServerData::generateFullMessage() {
     data.controlContoursFlags = UVState.controlContoursFlags;
     data.thrusterPower = UVState.thrusterPower;
     data.resetImu = UVState.resetImu;
+    data.experimentTypicalInput = UVState.experimentTypicalInput;
     UVMutex.unlock();
 
     return data;

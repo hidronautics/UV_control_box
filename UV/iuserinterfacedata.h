@@ -16,6 +16,7 @@ public:
     void setThrusterVelocity(int id, double value);
 
     void setControlContoursFlags(e_StabilizationContours contour, bool value);
+    void setExperimentTypicalInputFlag(bool value);
     void setCSMode(e_CSMode mode);
 
     ConnectionFlags getConnectionFlags();

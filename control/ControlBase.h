@@ -9,14 +9,7 @@ class ControlBase : public QObject {
 Q_OBJECT
 
 public:
-    ControlBase(QString name, int update_time);
-
-signals:
-    void controlChanged();
-
-protected:
-    QString device_name;
-
+    ControlBase(QString name);
     enum e_actionTypes {
         SET_MARCH = 0,
         SET_LAG,
@@ -25,6 +18,11 @@ protected:
         SET_PITCH,
         SET_YAW,
     };
+signals:
+    void controlChanged();
+
+protected:
+    QString device_name;
 
     void sendAction(e_actionTypes type, float value);
 

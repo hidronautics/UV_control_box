@@ -1,6 +1,7 @@
 #include "iuserinterfacedata.h"
 
 #include <stdexcept>
+#include <QDebug>
 
 IUserInterfaceData::IUserInterfaceData()
         : IBasicData() {
@@ -124,4 +125,11 @@ void IUserInterfaceData::setThrusterPowerFlag(bool value) {
     UVMutex.lock();
     UVState.thrusterPower = value;
     UVMutex.unlock();
+}
+
+void IUserInterfaceData::setExperimentTypicalInputFlag(bool value) {
+    UVMutex.lock();
+    UVState.experimentTypicalInput = value;
+    UVMutex.unlock();
+    qDebug() << "setExperimentTypicalInputFlag" << value;
 }

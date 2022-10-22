@@ -18,6 +18,8 @@
 #include "UV/iuserinterfacedata.h"
 #include "pultcontrolsystemprotocols.h"
 #include "control/Joystick.h"
+#include "control/Step.h"
+#include "control/ControlBase.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,6 +43,10 @@ private slots:
     void cSModeChange_handle();
     void cSModeChange_thruster(bool checked);
 
+    void typicalInput_start();
+    void typicalInput_stop();
+//    void updateUi_typicalInput_timer();
+
     void powerThrusterToggled(bool state);
 
     void stabilizeYawToggled(bool state);
@@ -56,7 +62,10 @@ signals:
     void updateDepth(double depth);
 
 private:
+    Step *step;
     QTimer *updateControl_timer;
+//    QTimer *typicalInput_timer;
+//    int typicalInput_timeCounter = 0;
 
     Ui::MainWindow *ui;
 

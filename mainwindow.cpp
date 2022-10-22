@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->checkBox_stabilizeDepth , SIGNAL(toggled(bool)), this, SLOT(stabilizeDepthToggled(bool)));
     connect(ui->checkBox_stabilizeLag   , SIGNAL(toggled(bool)), this, SLOT(stabilizeLagToggled(bool)));
 
+    connect(ui->pushButton_typicalInput_start, SIGNAL(clicked()), this, SLOT(typicalInput_start()));
+    connect(ui->pushButton_typicalInput_stop, SIGNAL(clicked()), this, SLOT(typicalInput_stop()));
+    ui->pushButton_typicalInput_stop->setEnabled(false);
+
     pultProtocol = new Pult::PC_Protocol(QHostAddress("192.168.4.1"), 13021, QHostAddress("192.168.4.2"),
                                           13020, 10);
 
@@ -34,6 +38,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(updateDepth(double)), ui->lable_depth, SLOT(setNum(double)));
 
     joystick = new Joystick("Joystick", 10, 0);
+    step = new Step();
+    connect(this->step, SIGNAL(stop_signal()), this, SLOT(typicalInput_stop()));
+
 
 //    connect(joystick, SIGNAL(controlChanged()), this, SLOT(updateUi_fromControl()));
     updateControl_timer = new QTimer(this);
@@ -154,6 +161,75 @@ void MainWindow::stabilizeDepthToggled(bool state) {
 void MainWindow::stabilizeLagToggled(bool state) {
     uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_LAG, state);
 }
+
+void MainWindow::typicalInput_start() {
+    joystick->setOff();
+    ui->pushButton_typicalInput_start->setEnabled(false);
+    ui->pushButton_typicalInput_stop->setEnabled(true);
+
+    ui->spinBox_typicalInput_T->                setEnabled(false);
+    ui->doubleSpinBox_typicalInput_k_1->        setEnabled(false);
+    ui->doubleSpinBox_typicalInput_k_2->        setEnabled(false);
+    ui->doubleSpinBox_typicalInput_k_3->        setEnabled(false);
+    ui->comboBox_typicalInput_selectedContour-> setEnabled(false);
+    ui->comboBox_typicalInput_shape->           setEnabled(false);
+
+    auto k_1 =  ui->doubleSpinBox_typicalInput_k_1->value();
+    auto T =  ui->spinBox_typicalInput_T->value();
+
+    uv_interface.setExperimentTypicalInputFlag(true);
+//    typicalInput_timer = new QTimer(this);
+//    connect(typicalInput_timer, SIGNAL(timeout()), this, SLOT(updateUi_typicalInput_timer()));
+//    typicalInput_timer->start(10);
+
+    switch (ui->comboBox_typicalInput_selectedContour->currentIndex()) {
+        case 0:
+            step->start(ControlBase::e_actionTypes::SET_YAW, k_1, T);
+            break;
+        case 1:
+            step->start(ControlBase::e_actionTypes::SET_PITCH, k_1, T);
+            break;
+        case 2:
+            step->start(ControlBase::e_actionTypes::SET_ROLL, k_1, T);
+            break;
+        case 3:
+            step->start(ControlBase::e_actionTypes::SET_MARCH, k_1, T);
+            break;
+        case 4:
+            step->start(ControlBase::e_actionTypes::SET_LAG, k_1, T);
+            break;
+        case 5:
+            step->start(ControlBase::e_actionTypes::SET_DEPTH, k_1, T);
+            break;
+    }
+}
+
+void MainWindow::typicalInput_stop() {
+//    typicalInput_timeCounter = 0;
+    joystick->setOn();
+    ui->pushButton_typicalInput_start->setEnabled(true);
+    ui->pushButton_typicalInput_stop->setEnabled(false);
+    ui->label_typicalInput_timePassed->setText("0");
+
+    ui->spinBox_typicalInput_T->                setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_1->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_2->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_3->        setEnabled(true);
+    ui->comboBox_typicalInput_selectedContour-> setEnabled(true);
+    ui->comboBox_typicalInput_shape->           setEnabled(true);
+
+    uv_interface.setExperimentTypicalInputFlag(false);
+
+//    delete typicalInput_timer;
+//    step->stop();
+}
+
+//void MainWindow::updateUi_typicalInput_timer() {
+//    if
+//    typicalInput_timeCounter += 10;
+//    ui->label_typicalInput_timePassed->setText(QString::number(typicalInput_timeCounter));
+//
+//}
 
 
 //void MainWindow::updateUi_cSModeChange() {
