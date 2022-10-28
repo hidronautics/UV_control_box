@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->checkBox_stabilizeLag   , SIGNAL(toggled(bool)), this, SLOT(stabilizeLagToggled(bool)));
 
     connect(ui->pushButton_typicalInput_start, SIGNAL(clicked()), this, SLOT(typicalInput_start()));
-    connect(ui->pushButton_typicalInput_stop, SIGNAL(clicked()), this, SLOT(typicalInput_stop()));
+    connect(ui->pushButton_typicalInput_stop, SIGNAL(clicked()), this, SLOT(typicalInput_stopByButton()));
     ui->pushButton_typicalInput_stop->setEnabled(false);
 
     pultProtocol = new Pult::PC_Protocol(QHostAddress("192.168.4.1"), 13021, QHostAddress("192.168.4.2"),
@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     joystick = new Joystick("Joystick", 10, 0);
     step = new Step();
-    connect(this->step, SIGNAL(stop_signal()), this, SLOT(typicalInput_stop()));
+    connect(this->step, SIGNAL(stop_signalByTiemr()), this, SLOT(typicalInput_stopByTiemr()));
 
 
 //    connect(joystick, SIGNAL(controlChanged()), this, SLOT(updateUi_fromControl()));
@@ -204,8 +204,24 @@ void MainWindow::typicalInput_start() {
     }
 }
 
-void MainWindow::typicalInput_stop() {
-//    typicalInput_timeCounter = 0;
+void MainWindow::typicalInput_stopByButton() {
+    joystick->setOn();
+    step->stopByButton();
+    ui->pushButton_typicalInput_start->setEnabled(true);
+    ui->pushButton_typicalInput_stop->setEnabled(false);
+    ui->label_typicalInput_timePassed->setText("0");
+
+    ui->spinBox_typicalInput_T->                setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_1->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_2->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_k_3->        setEnabled(true);
+    ui->comboBox_typicalInput_selectedContour-> setEnabled(true);
+    ui->comboBox_typicalInput_shape->           setEnabled(true);
+
+    uv_interface.setExperimentTypicalInputFlag(false);
+}
+
+void MainWindow::typicalInput_stopByTiemr() {
     joystick->setOn();
     ui->pushButton_typicalInput_start->setEnabled(true);
     ui->pushButton_typicalInput_stop->setEnabled(false);
@@ -219,35 +235,4 @@ void MainWindow::typicalInput_stop() {
     ui->comboBox_typicalInput_shape->           setEnabled(true);
 
     uv_interface.setExperimentTypicalInputFlag(false);
-
-//    delete typicalInput_timer;
-//    step->stop();
 }
-
-//void MainWindow::updateUi_typicalInput_timer() {
-//    if
-//    typicalInput_timeCounter += 10;
-//    ui->label_typicalInput_timePassed->setText(QString::number(typicalInput_timeCounter));
-//
-//}
-
-
-//void MainWindow::updateUi_cSModeChange() {
-//
-//    e_CSMode mode;
-//    mode = e_CSMode::MODE_HANDLE;
-//
-//    mode == e_CSMode::MODE_AUTO ? ui->radioButton_cSMode_auto->setChecked(true) :
-//    ui->radioButton_cSMode_auto->setChecked(false);
-//
-//    mode == e_CSMode::MODE_IDENTIFICATION_1 ? ui->radioButton_cSMode_identification1->setChecked(true) :
-//    ui->radioButton_cSMode_identification1->setChecked(false);
-//
-//    mode == e_CSMode::MODE_IDENTIFICATION_2 ? ui->radioButton_cSMode_identification2->setChecked(true) :
-//    ui->radioButton_cSMode_identification2->setChecked(false);
-//
-//    mode == e_CSMode::MODE_HANDLE ? ui->radioButton_cSMode_handle->setChecked(true) :
-//    ui->radioButton_cSMode_handle->setChecked(false);
-//}
-
-

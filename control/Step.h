@@ -14,11 +14,12 @@ private:
     e_actionTypes direction;
 
 public slots:
-    void stop();
+    void stopByTiemr();
+    void stopByButton();
     void start(ControlBase::e_actionTypes direction, float value, int time_msec);
 
 signals:
-    void stop_signal();
+    void stop_signalByTiemr();
 };
 
 #endif //UV_CONTROL_BOX_STEP_H

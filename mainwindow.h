@@ -44,8 +44,8 @@ private slots:
     void cSModeChange_thruster(bool checked);
 
     void typicalInput_start();
-    void typicalInput_stop();
-//    void updateUi_typicalInput_timer();
+    void typicalInput_stopByButton();
+    void typicalInput_stopByTiemr();
 
     void powerThrusterToggled(bool state);
 
