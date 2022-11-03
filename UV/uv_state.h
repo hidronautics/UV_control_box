@@ -117,6 +117,18 @@ struct ConnectionFlags {
     quint8 thrusterController;
 };
 
+struct SinTest {
+    SinTest();
+    quint8 sinSignal;
+    double u0;
+    double a;
+    double w;
+    double k;
+    double h;
+    e_StabilizationContours selectedContour;
+
+};
+
 struct ToPult {
     ImuData imuData;
     float depth;
@@ -125,12 +137,13 @@ struct ToPult {
     uint checksum;
 };
 
-//структура данных, которая передается из плнировщика в АНПА
+//структура данных, которая передается из планировщика в АНПА
 struct FromPult {
     // эти структуры и енумы реализованы в uv_state
     ControlData controlData;
     ControlContoursFlags controlContoursFlags;
     e_CSMode cSMode;
+    SinTest sinTest;
 
     quint8 resetImu;
     quint8 thrusterPower;
@@ -161,6 +174,7 @@ public:
     bool resetImu;
     bool thrusterPower;
     bool experimentTypicalInput;
+    bool sinSignal;
 };
 
 #endif // UV_STATE_H
