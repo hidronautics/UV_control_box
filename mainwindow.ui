@@ -616,7 +616,7 @@
                </item>
                <item>
                 <property name="text">
-                 <string>sin</string>
+                 <string>k_1 * sin(T1 * T2 * T3) + k_2</string>
                 </property>
                </item>
                <item>

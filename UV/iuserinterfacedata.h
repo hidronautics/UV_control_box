@@ -18,6 +18,8 @@ public:
     void setControlContoursFlags(e_StabilizationContours contour, bool value);
     void setExperimentTypicalInputFlag(bool value);
     void setCSMode(e_CSMode mode);
+    void setSinTest(quint8 sinSignal, double u0, double a, double w,
+                    double k, double h, e_StabilizationContours selectedContour);
 
     ConnectionFlags getConnectionFlags();
     void setResetImuFlag(bool value);

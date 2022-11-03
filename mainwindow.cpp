@@ -187,6 +187,7 @@ void MainWindow::typicalInput_start() {
     int T3 =  ui->doubleSpinBox_typicalInput_T3->value() * 1000;
     int T =  ui->sdoubleSpinBox_typicalInput_T->value() * 1000;
     auto direction = ControlBase::e_actionTypes::SET_YAW;
+//    auto direction = ControlBase::e_actionTypes::SET_YAW;
 
     switch (ui->comboBox_typicalInput_selectedContour->currentIndex()) {
         case 0:
@@ -215,8 +216,11 @@ void MainWindow::typicalInput_start() {
             step->start(direction, k_1, T);
             break;
         case 1:
-            qDebug() << "switch gradation->start";
             gradation->start(direction, k_1, k_2, k_3, T1, T2, T3);
+            break;
+        case 2:
+            qDebug() << "switch gradation->start";
+            uv_interface.setSinTest(1, k_2, k_1, T1, T2, T3, e_StabilizationContours::CONTOUR_YAW);
             break;
     }
 }
@@ -238,6 +242,7 @@ void MainWindow::typicalInput_stopByButton() {
     ui->comboBox_typicalInput_shape->           setEnabled(true);
 
     uv_interface.setExperimentTypicalInputFlag(false);
+    uv_interface.setSinTest(0, 0, 0, 0, 0, 0, e_StabilizationContours::CONTOUR_YAW);
 }
 
 void MainWindow::typicalInput_stopByTiemr() {

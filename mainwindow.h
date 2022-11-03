@@ -21,6 +21,7 @@
 #include "control/Step.h"
 #include "control/Gradation.h"
 #include "control/ControlBase.h"
+#include "UV/uv_state.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

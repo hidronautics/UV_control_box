@@ -133,3 +133,16 @@ void IUserInterfaceData::setExperimentTypicalInputFlag(bool value) {
     UVMutex.unlock();
     qDebug() << "setExperimentTypicalInputFlag" << value;
 }
+
+void IUserInterfaceData::setSinTest(quint8 sinSignal, double u0, double a, double w, double k, double h,
+                                    e_StabilizationContours selectedContour) {
+    UVMutex.lock();
+    UVState.sinTest.sinSignal = sinSignal;
+    UVState.sinTest.u0 = u0;
+    UVState.sinTest.a = a;
+    UVState.sinTest.w = w;
+    UVState.sinTest.k = k;
+    UVState.sinTest.h = h;
+    UVState.sinTest.selectedContour = selectedContour;
+    UVMutex.unlock();
+}

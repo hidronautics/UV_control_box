@@ -12,7 +12,9 @@ FromPult IServerData::generateFullMessage() {
     data.thrusterPower = UVState.thrusterPower;
     data.resetImu = UVState.resetImu;
     data.experimentTypicalInput = UVState.experimentTypicalInput;
+    data.sinTest = UVState.sinTest;
     UVMutex.unlock();
+    qDebug() << "sinTest" << UVState.sinTest.sinSignal << UVState.sinTest.a;
 
     return data;
 }
