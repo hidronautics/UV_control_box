@@ -19,6 +19,7 @@
 #include "pultcontrolsystemprotocols.h"
 #include "control/Joystick.h"
 #include "control/Step.h"
+#include "control/Gradation.h"
 #include "control/ControlBase.h"
 
 QT_BEGIN_NAMESPACE
@@ -63,6 +64,7 @@ signals:
 
 private:
     Step *step;
+    Gradation *gradation;
     QTimer *updateControl_timer;
 //    QTimer *typicalInput_timer;
 //    int typicalInput_timeCounter = 0;

@@ -39,7 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     joystick = new Joystick("Joystick", 10, 0);
     step = new Step();
+    gradation = new Gradation();
     connect(this->step, SIGNAL(stop_signalByTiemr()), this, SLOT(typicalInput_stopByTiemr()));
+    connect(this->gradation, SIGNAL(stop_signalByTiemr()), this, SLOT(typicalInput_stopByTiemr()));
 
 
 //    connect(joystick, SIGNAL(controlChanged()), this, SLOT(updateUi_fromControl()));
@@ -167,39 +169,54 @@ void MainWindow::typicalInput_start() {
     ui->pushButton_typicalInput_start->setEnabled(false);
     ui->pushButton_typicalInput_stop->setEnabled(true);
 
-    ui->spinBox_typicalInput_T->                setEnabled(false);
+    ui->sdoubleSpinBox_typicalInput_T->         setEnabled(false);
     ui->doubleSpinBox_typicalInput_k_1->        setEnabled(false);
     ui->doubleSpinBox_typicalInput_k_2->        setEnabled(false);
     ui->doubleSpinBox_typicalInput_k_3->        setEnabled(false);
+    ui->doubleSpinBox_typicalInput_T1->         setEnabled(false);
+    ui->doubleSpinBox_typicalInput_T2->         setEnabled(false);
+    ui->doubleSpinBox_typicalInput_T3->         setEnabled(false);
     ui->comboBox_typicalInput_selectedContour-> setEnabled(false);
     ui->comboBox_typicalInput_shape->           setEnabled(false);
 
-    auto k_1 =  ui->doubleSpinBox_typicalInput_k_1->value();
-    auto T =  ui->spinBox_typicalInput_T->value();
-
-    uv_interface.setExperimentTypicalInputFlag(true);
-//    typicalInput_timer = new QTimer(this);
-//    connect(typicalInput_timer, SIGNAL(timeout()), this, SLOT(updateUi_typicalInput_timer()));
-//    typicalInput_timer->start(10);
+    float k_1 =  ui->doubleSpinBox_typicalInput_k_1->value();
+    float k_2 =  ui->doubleSpinBox_typicalInput_k_2->value();
+    float k_3 =  ui->doubleSpinBox_typicalInput_k_3->value();
+    int T1 =  ui->doubleSpinBox_typicalInput_T1->value() * 1000;
+    int T2 =  ui->doubleSpinBox_typicalInput_T2->value() * 1000;
+    int T3 =  ui->doubleSpinBox_typicalInput_T3->value() * 1000;
+    int T =  ui->sdoubleSpinBox_typicalInput_T->value() * 1000;
+    auto direction = ControlBase::e_actionTypes::SET_YAW;
 
     switch (ui->comboBox_typicalInput_selectedContour->currentIndex()) {
         case 0:
-            step->start(ControlBase::e_actionTypes::SET_YAW, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_YAW;
             break;
         case 1:
-            step->start(ControlBase::e_actionTypes::SET_PITCH, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_PITCH;
             break;
         case 2:
-            step->start(ControlBase::e_actionTypes::SET_ROLL, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_ROLL;
             break;
         case 3:
-            step->start(ControlBase::e_actionTypes::SET_MARCH, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_MARCH;
             break;
         case 4:
-            step->start(ControlBase::e_actionTypes::SET_LAG, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_LAG;
             break;
         case 5:
-            step->start(ControlBase::e_actionTypes::SET_DEPTH, k_1, T);
+            direction = ControlBase::e_actionTypes::SET_DEPTH;
+            break;
+    }
+    uv_interface.setExperimentTypicalInputFlag(true);
+
+    switch (ui->comboBox_typicalInput_shape->currentIndex()) {
+        case 0:
+            step->start(direction, k_1, T);
+            break;
+        case 1:
+            qDebug() << "switch gradation->start";
+            gradation->start(direction, k_1, k_2, k_3, T1, T2, T3);
             break;
     }
 }
@@ -209,12 +226,14 @@ void MainWindow::typicalInput_stopByButton() {
     step->stopByButton();
     ui->pushButton_typicalInput_start->setEnabled(true);
     ui->pushButton_typicalInput_stop->setEnabled(false);
-    ui->label_typicalInput_timePassed->setText("0");
 
-    ui->spinBox_typicalInput_T->                setEnabled(true);
+    ui->sdoubleSpinBox_typicalInput_T->         setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_1->        setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_2->        setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_3->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T1->         setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T2->         setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T3->         setEnabled(true);
     ui->comboBox_typicalInput_selectedContour-> setEnabled(true);
     ui->comboBox_typicalInput_shape->           setEnabled(true);
 
@@ -225,12 +244,14 @@ void MainWindow::typicalInput_stopByTiemr() {
     joystick->setOn();
     ui->pushButton_typicalInput_start->setEnabled(true);
     ui->pushButton_typicalInput_stop->setEnabled(false);
-    ui->label_typicalInput_timePassed->setText("0");
 
-    ui->spinBox_typicalInput_T->                setEnabled(true);
+    ui->sdoubleSpinBox_typicalInput_T->         setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_1->        setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_2->        setEnabled(true);
     ui->doubleSpinBox_typicalInput_k_3->        setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T1->         setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T2->         setEnabled(true);
+    ui->doubleSpinBox_typicalInput_T3->         setEnabled(true);
     ui->comboBox_typicalInput_selectedContour-> setEnabled(true);
     ui->comboBox_typicalInput_shape->           setEnabled(true);
 

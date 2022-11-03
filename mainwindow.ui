@@ -515,26 +515,17 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_35">
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_19">
              <property name="text">
-              <string>k_1</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <string>T2</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_2">
-             <property name="minimum">
-              <double>-1000.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>1000.000000000000000</double>
-             </property>
+           <item row="0" column="4">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_T1">
              <property name="singleStep">
-              <double>0.010000000000000</double>
+              <double>0.500000000000000</double>
              </property>
             </widget>
            </item>
@@ -548,29 +539,10 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_1">
-             <property name="minimum">
-              <double>-1000.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>1000.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.010000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_3">
-             <property name="minimum">
-              <double>-1000.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>1000.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.010000000000000</double>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>T1</string>
              </property>
             </widget>
            </item>
@@ -639,7 +611,12 @@
                </item>
                <item>
                 <property name="text">
-                 <string>k_1 * sin(k_2 + k_3*t)</string>
+                 <string>k_1(T1) -&gt; k_2(T2) -&gt; k_3(T3)</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>sin</string>
                 </property>
                </item>
                <item>
@@ -679,23 +656,90 @@
              </item>
             </layout>
            </item>
+           <item row="3" column="2">
+            <widget class="QDoubleSpinBox" name="sdoubleSpinBox_typicalInput_T">
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
            <item row="3" column="1">
             <widget class="QLabel" name="label_7">
              <property name="text">
-              <string>T, мсек.</string>
+              <string>T, сек.</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="3" column="2">
-            <widget class="QSpinBox" name="spinBox_typicalInput_T">
+           <item row="1" column="4">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_T2">
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_T3">
+             <property name="singleStep">
+              <double>0.500000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>T3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_35">
+             <property name="text">
+              <string>k_1</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_3">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
              <property name="maximum">
-              <number>60000</number>
+              <double>1000.000000000000000</double>
              </property>
              <property name="singleStep">
-              <number>100</number>
+              <double>1.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_2">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>1.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_typicalInput_k_1">
+             <property name="minimum">
+              <double>-1000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>1.000000000000000</double>
              </property>
             </widget>
            </item>
