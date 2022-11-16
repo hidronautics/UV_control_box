@@ -140,7 +140,7 @@ void IUserInterfaceData::setSinTest(quint8 sinSignal, double u0, double a, doubl
     UVState.sinTest.sinSignal = sinSignal;
     UVState.sinTest.u0 = u0;
     UVState.sinTest.a = a;
-    UVState.sinTest.w = w;
+    UVState.sinTest.w = w / 1000;
     UVState.sinTest.k = k;
     UVState.sinTest.h = h;
     UVState.sinTest.selectedContour = selectedContour;
