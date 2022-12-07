@@ -205,26 +205,33 @@ void MainWindow::typicalInput_start() {
     int T3 =  ui->doubleSpinBox_typicalInput_T3->value() * 1000;
     int T =  ui->sdoubleSpinBox_typicalInput_T->value() * 1000;
     auto direction = ControlBase::e_actionTypes::SET_YAW;
+    auto directionSin = e_StabilizationContours::CONTOUR_YAW;
 //    auto direction = ControlBase::e_actionTypes::SET_YAW;
 
     switch (ui->comboBox_typicalInput_selectedContour->currentIndex()) {
         case 0:
             direction = ControlBase::e_actionTypes::SET_YAW;
+            directionSin = e_StabilizationContours::CONTOUR_YAW;
             break;
         case 1:
             direction = ControlBase::e_actionTypes::SET_PITCH;
+            directionSin = e_StabilizationContours::CONTOUR_PITCH;
             break;
         case 2:
             direction = ControlBase::e_actionTypes::SET_ROLL;
+            directionSin = e_StabilizationContours::CONTOUR_ROLL;
             break;
         case 3:
             direction = ControlBase::e_actionTypes::SET_MARCH;
+            directionSin = e_StabilizationContours::CONTOUR_MARCH;
             break;
         case 4:
             direction = ControlBase::e_actionTypes::SET_LAG;
+            directionSin = e_StabilizationContours::CONTOUR_LAG;
             break;
         case 5:
             direction = ControlBase::e_actionTypes::SET_DEPTH;
+            directionSin = e_StabilizationContours::CONTOUR_DEPTH;
             break;
     }
     uv_interface.setExperimentTypicalInputFlag(true);
@@ -238,7 +245,7 @@ void MainWindow::typicalInput_start() {
             break;
         case 2:
             qDebug() << "switch gradation->start";
-            uv_interface.setSinTest(1, k_2, k_1, T1, T2, T3, e_StabilizationContours::CONTOUR_YAW);
+            uv_interface.setSinTest(1, k_2, k_1, T1, T2, T3, directionSin);
             break;
     }
 }
