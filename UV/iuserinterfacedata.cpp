@@ -18,6 +18,16 @@ ControlData IUserInterfaceData::getControlData() {
     return data;
 }
 
+DeltaControlData IUserInterfaceData::getDeltaControlData() {
+    DeltaControlData data;
+
+    UVMutex.lock();
+    data = UVState.deltaControl;
+    UVMutex.unlock();
+
+    return data;
+}
+
 double  IUserInterfaceData::getDepth() {
     double data;
 
@@ -144,5 +154,23 @@ void IUserInterfaceData::setSinTest(quint8 sinSignal, double u0, double a, doubl
     UVState.sinTest.k = k;
     UVState.sinTest.h = h;
     UVState.sinTest.selectedContour = selectedContour;
+    UVMutex.unlock();
+}
+
+void IUserInterfaceData::setDeltaYaw(double deltaYaw) {
+    UVMutex.lock();
+    UVState.deltaControl.yaw = deltaYaw;
+    UVMutex.unlock();
+}
+
+void IUserInterfaceData::setDeltaRoll(double deltaRoll) {
+    UVMutex.lock();
+    UVState.deltaControl.roll = deltaRoll;
+    UVMutex.unlock();
+}
+
+void IUserInterfaceData::setDeltaPitch(double deltaPitch) {
+    UVMutex.lock();
+    UVState.deltaControl.pitch = deltaPitch;
     UVMutex.unlock();
 }

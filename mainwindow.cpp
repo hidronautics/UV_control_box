@@ -15,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_thrusterPower, SIGNAL(toggled(bool)), this, SLOT(powerThrusterToggled(bool)));
 
+    connect(ui->pushButton_deltaControlDrop_yaw, SIGNAL(clicked()), this, SLOT(deltaControlDropYaw()));
+    connect(ui->pushButton_deltaControlDrop_roll, SIGNAL(clicked()), this, SLOT(deltaControlDropRoll()));
+    connect(ui->pushButton_deltaControlDrop_pitch, SIGNAL(clicked()), this, SLOT(deltaControlDropPitch()));
+
     connect(ui->checkBox_stabilizeYaw   , SIGNAL(toggled(bool)), this, SLOT(stabilizeYawToggled(bool)));
     connect(ui->checkBox_stabilizePitch , SIGNAL(toggled(bool)), this, SLOT(stabilizePitchToggled(bool)));
     connect(ui->checkBox_stabilizeRoll  , SIGNAL(toggled(bool)), this, SLOT(stabilizeRollToggled(bool)));
@@ -60,13 +64,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateUi_fromControl() {
     ControlData control = uv_interface.getControlData();
+    DeltaControlData deltaControl = uv_interface.getDeltaControlData();
 
-    ui->label_control_march     ->setText(QString::number(control.march,    'f', 2));
-    ui->label_control_lag       ->setText(QString::number(control.lag,      'f', 2));
-    ui->label_control_depth     ->setText(QString::number(control.depth,    'f', 2));
-    ui->label_control_yaw       ->setText(QString::number(control.yaw,      'f', 2));
-    ui->label_control_roll      ->setText(QString::number(control.roll,     'f', 2));
-    ui->label_control_pitch     ->setText(QString::number(control.pitch,    'f', 2));
+    ui->label_control_march     ->setText(QString::number(control.march +   deltaControl.march,    'f', 2));
+    ui->label_control_lag       ->setText(QString::number(control.lag +     deltaControl.lag,      'f', 2));
+    ui->label_control_depth     ->setText(QString::number(control.depth +   deltaControl.depth,    'f', 2));
+    ui->label_control_yaw       ->setText(QString::number(control.yaw +     deltaControl.yaw,      'f', 2));
+    ui->label_control_roll      ->setText(QString::number(control.roll +    deltaControl.roll,     'f', 2));
+    ui->label_control_pitch     ->setText(QString::number(control.pitch +   deltaControl.pitch,    'f', 2));
 }
 
 void MainWindow::updateUi_fromROV() {
@@ -94,6 +99,18 @@ void MainWindow::updateUi_fromROV() {
 
 void MainWindow::cSModeChange_auto() {
     uv_interface.setCSMode(e_CSMode::MODE_AUTO);
+
+    uv_interface.setDeltaYaw(uv_interface.getImuData().psi);
+    uv_interface.setDeltaRoll(uv_interface.getImuData().gamma);
+    uv_interface.setDeltaPitch(uv_interface.getImuData().teta);
+
+    ui->checkBox_stabilizeYaw->setCheckState(Qt::CheckState::Checked);
+    ui->checkBox_stabilizeRoll->setCheckState(Qt::CheckState::Checked);
+    ui->checkBox_stabilizePitch->setCheckState(Qt::CheckState::Checked);
+
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_YAW, true);
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_PITCH, true);
+    uv_interface.setControlContoursFlags(e_StabilizationContours::CONTOUR_ROLL, true);
 }
 
 void MainWindow::cSModeChange_identification1() {
@@ -105,6 +122,7 @@ void MainWindow::cSModeChange_identification2() {
 }
 
 void MainWindow::cSModeChange_handle() {
+    typicalInput_stopByButton();
     uv_interface.setCSMode(e_CSMode::MODE_HANDLE);
 }
 
@@ -261,4 +279,16 @@ void MainWindow::typicalInput_stopByTiemr() {
     ui->comboBox_typicalInput_shape->           setEnabled(true);
 
     uv_interface.setExperimentTypicalInputFlag(false);
+}
+
+void MainWindow::deltaControlDropYaw() {
+    uv_interface.setDeltaYaw(0);
+}
+
+void MainWindow::deltaControlDropRoll() {
+    uv_interface.setDeltaRoll(0);
+}
+
+void MainWindow::deltaControlDropPitch() {
+    uv_interface.setDeltaPitch(0);
 }

@@ -113,3 +113,12 @@ SinTest::SinTest() {
     h = 0;
     selectedContour = e_StabilizationContours::CONTOUR_YAW;
 }
+
+DeltaControlData::DeltaControlData() {
+    yaw = 0;
+    pitch = 0;
+    roll = 0;
+    march = 0;
+    depth = 0;
+    lag = 0;
+}

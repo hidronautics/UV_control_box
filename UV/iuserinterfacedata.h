@@ -24,6 +24,12 @@ public:
     ConnectionFlags getConnectionFlags();
     void setResetImuFlag(bool value);
     void setThrusterPowerFlag(bool value);
+
+    DeltaControlData getDeltaControlData();
+    void setDeltaYaw(double deltaYaw);
+    void setDeltaRoll(double deltaRoll);
+    void setDeltaPitch(double deltaPitch);
+
 };
 
 #endif // IUSERINTERFACEDATA_H

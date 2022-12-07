@@ -16,5 +16,4 @@ public:
     void setPitch(double pitch);
     void setYaw(double yaw);
 };
-
 #endif // ICONTROLDATA_H

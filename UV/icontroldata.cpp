@@ -13,36 +13,36 @@ void IControlData::setControlData(ControlData data) {
 
 void IControlData::setMarch(double march) {
     UVMutex.lock();
-    UVState.control.march = march;
+    UVState.control.march = UVState.deltaControl.march + march;
     UVMutex.unlock();
 }
 
 void IControlData::setLag(double lag) {
     UVMutex.lock();
-    UVState.control.lag = lag;
+    UVState.control.lag = UVState.deltaControl.lag + lag;
     UVMutex.unlock();
 }
 
 void IControlData::setDepth(double depth) {
     UVMutex.lock();
-    UVState.control.depth = depth;
+    UVState.control.depth = UVState.deltaControl.depth + depth;
     UVMutex.unlock();
 }
 
 void IControlData::setRoll(double roll) {
     UVMutex.lock();
-    UVState.control.roll = roll;
+    UVState.control.roll = UVState.deltaControl.roll + roll;
     UVMutex.unlock();
 }
 
 void IControlData::setPitch(double pitch) {
     UVMutex.lock();
-    UVState.control.pitch = pitch;
+    UVState.control.pitch = UVState.deltaControl.pitch + pitch;
     UVMutex.unlock();
 }
 
 void IControlData::setYaw(double yaw) {
     UVMutex.lock();
-    UVState.control.yaw = yaw;
+    UVState.control.yaw = UVState.deltaControl.yaw + yaw;
     UVMutex.unlock();
 }

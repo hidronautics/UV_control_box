@@ -36,6 +36,16 @@ struct ControlData {
     double lag;
 };
 
+struct DeltaControlData {
+    DeltaControlData();
+    double yaw;
+    double pitch;
+    double roll;
+    double march;
+    double depth;
+    double lag;
+};
+
 struct ControlContoursFlags {
     ControlContoursFlags();
     quint8 yaw;
@@ -158,6 +168,7 @@ public:
     ~UV_State();
 
     ControlData control;
+    DeltaControlData deltaControl;
 
     ControlContoursFlags controlContoursFlags;
     e_CSMode cSMode;

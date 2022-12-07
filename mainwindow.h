@@ -49,6 +49,10 @@ private slots:
     void typicalInput_stopByButton();
     void typicalInput_stopByTiemr();
 
+    void deltaControlDropYaw();
+    void deltaControlDropPitch();
+    void deltaControlDropRoll();
+
     void powerThrusterToggled(bool state);
 
     void stabilizeYawToggled(bool state);
