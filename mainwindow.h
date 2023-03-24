@@ -16,7 +16,7 @@
 #include <QTimer>
 
 #include "UV/iuserinterfacedata.h"
-#include "pultcontrolsystemprotocols.h"
+#include "communication/pultcontrolsystemprotocols.h"
 #include "control/Joystick.h"
 #include "control/Step.h"
 #include "control/Gradation.h"
@@ -27,12 +27,12 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class MainWindow: public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -64,21 +64,21 @@ signals:
     void updateDepth(double depth);
 
 private:
-    Step *step;
-    Gradation *gradation;
-    QTimer *updateControl_timer;
-//    QTimer *typicalInput_timer;
-//    int typicalInput_timeCounter = 0;
+    Step* step;
+    Gradation* gradation;
+    QTimer* updateControl_timer;
+    //    QTimer *typicalInput_timer;
+    //    int typicalInput_timeCounter = 0;
 
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
 
     IUserInterfaceData uv_interface;
-    Pult::PC_Protocol *pultProtocol;
+    Pult::PC_Protocol* pultProtocol;
 
     void cSModeChange_thrusterOn();
     void cSModeChange_thrusterOff();
 
-    Joystick *joystick = nullptr;
+    Joystick* joystick = nullptr;
 
 };
 #endif // MAINWINDOW_H
